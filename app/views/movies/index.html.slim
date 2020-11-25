@@ -1,0 +1,21 @@
+h1 映画一覧
+
+= link_to '新規登録', new_movie_path, class: 'btn btn-primary'
+
+.mb3
+table.table.table-hover
+  thead.thead-default
+    tr
+      th= Movie.human_attribute_name(:title)
+      th= Movie.human_attribute_name(:created_at)
+      th
+  tbody
+    - @movies.each do |movie|
+      tr
+        td= link_to movie.title, movie
+        td= movie.created_at
+        td
+          = link_to '編集', edit_movie_path(movie), class: 'btn btn-primary mr-3'
+          = link_to '削除', movie, method: :delete, 
+                    data: { confirm: "「#{movie.title}」を削除します。よろしいですか？"}, 
+                    class: 'btn btn-danger'
