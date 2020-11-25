@@ -1,0 +1,21 @@
+h1 映画監督一覧
+
+= link_to '新規登録', new_director_path, class: 'btn btn-primary'
+
+.mb3
+table.table.table-hover
+  thead.thead-default
+    tr
+      th= Director.human_attribute_name(:name)
+      th= Director.human_attribute_name(:created_at)
+      th
+  tbody
+    - @directors.each do |director|
+      tr
+        td= director.name
+        td= director.created_at
+        td
+          = link_to '編集', edit_director_path(director), class: 'btn btn-primary mr-3'
+          = link_to '削除', director, method: :delete, 
+                    data: { confirm: "「#{director.name}」を削除します。よろしいですか？"}, 
+                    class: 'btn btn-danger'

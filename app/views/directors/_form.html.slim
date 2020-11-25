@@ -1,0 +1,11 @@
+- if director.errors.present?
+  ul#error_explanation
+    - director.errors.full_messages.each do |message|
+      li= message
+
+= form_with model: director, local: true do |f|
+ .form-group
+  = f.label :name
+  = f.text_field :name, class: 'form-control', id: 'director_name'
+
+ = f.submit nil, class: 'btn btn-primary'
