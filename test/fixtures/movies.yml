@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  production_year: 1
+  screening_date: 2020-11-25
+  country_of_origin: MyString
+  screening_time: 1
+  director: MyString
+  description: MyText
+
+two:
+  title: MyString
+  production_year: 1
+  screening_date: 2020-11-25
+  country_of_origin: MyString
+  screening_time: 1
+  director: MyString
+  description: MyText

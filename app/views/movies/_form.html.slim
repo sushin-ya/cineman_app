@@ -1,0 +1,30 @@
+= form_with model: movie, local: true do |f|
+ .form-group
+  = f.label :title
+  = f.text_field :title, class: 'form-control', id: 'movie_title'
+
+ .form-group
+  = f.label :production_year
+  = f.text_field :production_year, class: 'form-control', id: 'movie_production_year'
+ 
+ .form-group
+  = f.label :screening_date
+  = f.text_field :screening_date, class: 'form-control', id: 'movie_screening_date'
+ 
+ .form-group
+  = f.label :country_of_origin
+  = f.text_field :country_of_origin, class: 'form-control', id: 'movie_country_of_origin'
+ 
+ .form-group
+  = f.label :screening_time
+  = f.text_field :screening_time, class: 'form-control', id: 'movie_screening_time'
+ 
+ .form-group
+  = f.label :director
+  = f.text_field :director, class: 'form-control', id: 'movie_director'
+ 
+ .form-group
+  = f.label :description
+  = f.text_area :description, rows: 3, class: 'form-control', id: 'movie_description'
+
+ = f.submit nil, class: 'btn btn-primary'

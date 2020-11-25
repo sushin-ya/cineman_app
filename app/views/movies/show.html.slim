@@ -1,0 +1,40 @@
+h1 映画の詳細
+
+.nav.justify-content-end
+  = link_to '一覧', movies_path, class: 'nav-link'
+table.table.table-hover
+  tbody
+    tr
+      th= Movie.human_attribute_name(:id)
+      td= @movie.id
+    tr
+      th= Movie.human_attribute_name(:title)
+      td= @movie.title
+    tr
+      th= Movie.human_attribute_name(:production_year)
+      td= @movie.production_year
+    tr
+      th= Movie.human_attribute_name(:screening_date)
+      td= @movie.screening_date
+    tr
+      th= Movie.human_attribute_name(:country_of_origin)
+      td= @movie.country_of_origin
+    tr
+      th= Movie.human_attribute_name(:screening_time)
+      td= @movie.screening_time
+    tr
+      th= Movie.human_attribute_name(:director)
+      td= @movie.director
+    tr
+      th= Movie.human_attribute_name(:description)
+      td= simple_format(h(@movie.description), {}, sanitize: false, wrapper_tag: "div")
+    tr
+      th= Movie.human_attribute_name(:created_at)
+      td= @movie.created_at
+    tr
+      th= Movie.human_attribute_name(:updated_at)
+      td= @movie.updated_at
+= link_to '編集', edit_movie_path, class: 'btn btn-primary mr-3'
+= link_to '削除', @movie, method: :delete, 
+          data: { confirm: "「#{@movie.title}」を削除します。よろしいですか？"}, 
+          class: 'btn btn-danger'
