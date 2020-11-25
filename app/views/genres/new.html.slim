@@ -1,0 +1,5 @@
+h1 ジャンルの新規登録
+.nav.justify-content-end
+  = link_to '一覧', genres_path, class: 'nav-link'
+
+= render partial: "form", locals: { genre: @genre }

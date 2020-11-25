@@ -1,0 +1,21 @@
+h1 ジャンル一覧
+
+= link_to '新規登録', new_genre_path, class: 'btn btn-primary'
+
+.mb3
+table.table.table-hover
+  thead.thead-default
+    tr
+      th= Genre.human_attribute_name(:name)
+      th= Genre.human_attribute_name(:created_at)
+      th
+  tbody
+    - @genres.each do |genre|
+      tr
+        td= genre.name
+        td= genre.created_at
+        td
+          = link_to '編集', edit_genre_path(genre), class: 'btn btn-primary mr-3'
+          = link_to '削除', genre, method: :delete, 
+                    data: { confirm: "「#{genre.name}」を削除します。よろしいですか？"}, 
+                    class: 'btn btn-danger'
