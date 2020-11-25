@@ -40,7 +40,11 @@ ja:
         screenwriter:
             name: 脚本家名称     
             created_at: 登録日時
-            updated_at: 更新日時     
+            updated_at: 更新日時
+        cast:
+            name: キャスト名称     
+            created_at: 登録日時
+            updated_at: 更新日時          
   date:
     abbr_day_names:
     - 日

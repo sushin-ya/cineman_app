@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :genres
   resources :directors
   resources :screenwriters
+  resources :casts
 end
