@@ -1,3 +1,8 @@
+- if movie.errors.present?
+  ul#error_explanation
+    - movie.errors.full_messages.each do |message|
+      li= message
+
 = form_with model: movie, local: true do |f|
  .form-group
   = f.label :title

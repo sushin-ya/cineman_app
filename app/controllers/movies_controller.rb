@@ -16,15 +16,18 @@ class MoviesController < ApplicationController
   end
 
   def create
-    movie = Movie.new(movie_params)
-    movie.save!
-    redirect_to movies_url, notice: "「#{movie.title}」を登録しました。"
+    @movie = Movie.new(movie_params)
+    if @movie.save
+      redirect_to @movie, notice: "「#{@movie.title}」を登録しました。"
+    else
+      render :new
+    end
   end
 
   def update
     movie = Movie.find(params[:id])
     movie.update!(movie_params)
-    redirect_to movies_url, notice:"「#{movie.title}」を更新しました。"
+    redirect_to movies_url, notice: "「#{movie.title}」を更新しました。"
   end
 
   def destroy
