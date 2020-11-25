@@ -1,0 +1,5 @@
+h1 映画監督の新規登録
+.nav.justify-content-end
+  = link_to '一覧', directors_path, class: 'nav-link'
+
+= render partial: "form", locals: { director: @director }
