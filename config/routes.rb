@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'movies#index'
+  root to: 'static_page#home'
   resources :movies
   resources :genres
   resources :directors
