@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   resources :movies
   resources :genres
   resources :directors
+  resources :screenwriters
 end
