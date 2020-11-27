@@ -1,2 +1,26 @@
 h1 Sign up
-p This will be a signup page for new users.
+- if @user.errors.present?
+  .alert.alert-danger
+    '#{@user.errors.count}件のエラーがあります
+    ul#error_explanation
+      - @user.errors.full_messages.each do |message|
+        li= message
+
+= form_with model: @user, local: true do |f|
+ .form-group
+  = f.label :name
+  = f.text_field :name, class: 'form-control', id: 'user_name'
+
+ .form-group
+  = f.label :email
+  = f.email_field :email, class: 'form-control', id: 'user_email'
+
+ .form-group
+  = f.label :password
+  = f.password_field :password, class: 'form-control', id: 'user_password'
+
+ .form-group
+  = f.label :password_confirmation
+  = f.password_field :password_confirmation, class: 'form-control', id: 'user_password_confirmation'
+
+ = f.submit nil, class: 'btn btn-primary'
