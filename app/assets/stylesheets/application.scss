@@ -1,5 +1,13 @@
 @import "bootstrap";
 
+/* miscellaneous */
+
+.debug_dump {
+  margin: 0 auto;
+  width: 80%;
+  margin-top: 45px;
+}
+
 /* header */
 header {
   margin-bottom: 15px;
@@ -11,6 +19,6 @@ footer {
   padding-top: 5px;
 }
 
-footer ul li {
-  font-size: 14px;
+footer small {
+  margin: 0 auto;
 }
