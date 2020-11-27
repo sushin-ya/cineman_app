@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :directors
   resources :screenwriters
   resources :casts
-
+  resources :users
+  
   get '/signup', to: 'users#new'
 end
