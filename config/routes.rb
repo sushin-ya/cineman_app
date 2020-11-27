@@ -6,9 +6,11 @@ Rails.application.routes.draw do
   resources :screenwriters
   resources :casts
   resources :users
-  
+
   get '/signup', to: 'users#new'
-  get '/login', to:'sessions#new'
+  get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
-  delete '/logout', to: 'sessions#destroy'
+  
+  #deleteと設定するとセッションの削除ができない
+  get '/logout', to: 'sessions#destroy'
 end
