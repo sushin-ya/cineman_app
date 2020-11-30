@@ -10,7 +10,6 @@ Rails.application.routes.draw do
   get '/signup', to: 'users#new'
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
-  
-  #deleteと設定するとセッションの削除ができない
-  get '/logout', to: 'sessions#destroy'
+
+  delete '/logout', to: 'sessions#destroy'
 end

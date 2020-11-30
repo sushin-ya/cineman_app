@@ -58,3 +58,7 @@ gem 'html2slim'
 
 gem 'bootstrap'
 gem 'rubocop'
+
+gem 'faker'
+
+gem 'kaminari'
