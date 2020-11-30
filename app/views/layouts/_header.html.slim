@@ -5,6 +5,7 @@ header.navbar.navbar-expand-lg.navbar-dark.bg-dark
        li= link_to 'Home', root_path, class: 'nav-link ' 
        - if logged_in?
         li= link_to 'Profile', current_user,  class: 'nav-link ml-4' 
+        li= link_to 'Settings', edit_user_path(current_user),  class: 'nav-link ml-4' 
         li= link_to 'Logout', logout_path,  method: :delete, class: 'nav-link ml-4' 
        - else
         li= link_to 'Login', login_path,  class: 'nav-link ml-4' 
