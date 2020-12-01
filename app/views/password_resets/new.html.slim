@@ -1,0 +1,8 @@
+h1 Forgot password
+
+= form_with url: password_resets_path,scope: :password_reset, local: true do |f|
+ .form-group
+  = f.label :email
+  = f.email_field :email, class: 'form-control', id: 'user_email'
+
+ = f.submit '送信', class: 'btn btn-primary'
