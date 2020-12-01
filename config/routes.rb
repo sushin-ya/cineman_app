@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :screenwriters
   resources :casts
   resources :users
+  resources :account_activations, only:[:edit]
 
   get '/signup', to: 'users#new'
   get '/login', to: 'sessions#new'
