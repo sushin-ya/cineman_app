@@ -1,25 +1,18 @@
-h1
-  = @user.name
-p
-  = @user.email
-
+h2.mb-3 ユーザページ
 .container.user-show
   .row
     .col-md-4
       ul.list-group.text-center
         li.list-group-item.title メニュー
         li.list-group-item.list-group-item-action
-          = link_to 'ホーム'
+          = link_to 'ホーム', root_path
         li.list-group-item.list-group-item-action
           = link_to 'レビュー'
         li.list-group-item.list-group-item-action
           = link_to 'ブックマーク'
         li.list-group-item.list-group-item-action
-          = link_to 'プロフィール'
-        li.list-group-item.list-group-item-action
-          = link_to 'メールアドレス'
-        li.list-group-item.list-group-item-action
-          = link_to 'パスワード'
+          = link_to 'プロフィール設定', edit_user_path(current_user)
+
     .col-md-8.text-center
       .main-content
         .list-group-item.rounded-top.title マイページ
