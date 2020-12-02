@@ -14,4 +14,5 @@ html
       div class="alert alert-#{message_type}" #{message}
     = yield
   = debug(params) if Rails.env.development?
-  = render partial: "layouts/footer"
+  = render partial: "layouts/footer_links"
+  = render partial: "layouts/footer_copyright"

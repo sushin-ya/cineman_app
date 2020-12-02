@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   get 'password_resets/new'
   get 'password_resets/edit'
+  get '/frequently_qa', to: 'static_page#frequently_qa'
+  get '/management', to: 'static_page#management'
+  get '/privacy', to: 'static_page#privacy'
+  get '/term', to: 'static_page#term'
   root to: 'static_page#home'
   resources :movies
   resources :genres
