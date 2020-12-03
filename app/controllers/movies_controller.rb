@@ -46,7 +46,8 @@ class MoviesController < ApplicationController
       :country_of_origin,
       :screening_time,
       :director,
-      :description
+      :description,
+      :image
     )
   end
 end

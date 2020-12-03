@@ -18,8 +18,11 @@ h2.mb-3 ユーザページ
         .list-group-item.rounded-top.title マイページ
         .row
           .col-md-3
-          .col-md-6 
-            h1 画像
+          .col-md
+            - if @user.image.attached?
+              = image_tag @user.image 
+            - else
+              = image_tag '/assets/default_avater.png', height: '300'
           .col-md-3
         .mb-3
           = @user.name

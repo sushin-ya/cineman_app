@@ -18,6 +18,7 @@ ja:
             screening_time: 上映時間（分）
             director: 監督
             description: あらすじ  
+            image: 画像
             created_at: 登録日時
             updated_at: 更新日時
         user:
@@ -27,6 +28,7 @@ ja:
             admin: 管理者権限
             password: パスワード
             password_confirmation: パスワード（確認）
+            image: 画像
             created_at: 登録日時
             updated_at: 更新日時
         genre:

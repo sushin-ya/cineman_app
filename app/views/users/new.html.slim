@@ -23,4 +23,8 @@ h1 サインアップ
   = f.label :password_confirmation
   = f.password_field :password_confirmation, class: 'form-control', id: 'user_password_confirmation'
 
+ .form-group
+  = f.label :image
+  = f.file_field :image, class: 'form-control'
+
  = f.submit nil, class: 'btn btn-primary'
