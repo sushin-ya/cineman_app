@@ -15,6 +15,10 @@ h1 ユーザの編集
   = f.label :email
   = f.email_field :email, class: 'form-control', id: 'user_email'
 
+  .form-group
+  = f.label :description
+  = f.text_area :description, rows: 3, class: 'form-control', id: 'user_description'
+
  .form-group
   = f.label :password
   = f.password_field :password, class: 'form-control', id: 'user_password'

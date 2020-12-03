@@ -8,6 +8,12 @@ table.table.table-hover
       th= Movie.human_attribute_name(:id)
       td= @movie.id
     tr
+      th= Movie.human_attribute_name(:image)
+      - if @movie.image.attached?
+        td= image_tag @movie.image 
+      - else
+        td= image_tag '/assets/default_poster.png', height: '360'        
+    tr
       th= Movie.human_attribute_name(:title)
       td= @movie.title
     tr

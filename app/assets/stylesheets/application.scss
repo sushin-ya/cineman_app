@@ -2,9 +2,8 @@
 
 /* miscellaneous */
 .debug_dump {
-  margin: 0 auto;
   width: 80%;
-  margin-top: 45px;
+  margin: 45px;
 }
 
 /* header */
@@ -12,11 +11,54 @@ header {
   margin-bottom: 15px;
 }
 /* footer */
-footer {
-  margin-top: 45px;
-  padding-top: 5px;
-}
-
 footer small {
   margin: 0 auto;
+}
+
+footer ul {
+  list-style: none;
+}
+
+footer li {
+  padding-bottom: 5px;
+}
+
+footer li.title {
+  font-size: medium;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+footer li a {
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+}
+
+footer li a:hover {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: underline;
+}
+
+/* body */
+.user-show li.title {
+  background-color: #333;
+  color: #eee;
+}
+
+.user-show li a {
+  display: block;
+  color: #333;
+  text-decoration: none;
+}
+
+.user-show li a:hover {
+  text-decoration: underline;
+}
+
+.user-show .title {
+  background-color: #333;
+  color: #eee;
+}
+
+.user-show .main-content {
+  border: 1px solid rgba(0, 0, 0, 0.125);
 }
