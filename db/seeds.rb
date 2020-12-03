@@ -146,3 +146,13 @@ Genre.create!(name: 'コメディ')
 Genre.create!(name: '青春')
 Genre.create!(name: 'サスペンス')
 Genre.create!(name: 'クライム')
+
+# レビューを生成
+user = User.first
+movie1 = Movie.first
+50.times do |n|
+  user.reviews.create!(body: 'これは初めてのレビューです', movie_id: movie1.id)
+end
+
+movie2 = Movie.second
+user.reviews.create!(body: 'これは二度目のレビューです', movie_id: movie2.id)
