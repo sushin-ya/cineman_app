@@ -10,8 +10,9 @@ h2.mb-3 ユーザページ
           = link_to 'レビュー'
         li.list-group-item.list-group-item-action
           = link_to 'ブックマーク'
-        li.list-group-item.list-group-item-action
-          = link_to 'プロフィール設定', edit_user_path(current_user)
+        - if current_user?(@user)
+          li.list-group-item.list-group-item-action
+            = link_to 'プロフィール設定', edit_user_path(current_user)
 
     .col-md-8.text-center
       .main-content
@@ -27,7 +28,7 @@ h2.mb-3 ユーザページ
         .mb-3
           = @user.name
         .mb-3
-          p テスト太郎です。無職なので毎日映画を見てます。
+          = @user.description
         .row
           .col-md-8 投稿したレビュー
           .col-md-4 10件
