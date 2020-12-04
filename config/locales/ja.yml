@@ -28,7 +28,8 @@ ja:
             admin: 管理者権限
             password: パスワード
             password_confirmation: パスワード（確認）
-            image: 画像
+            image: アバター画像
+            description: 自己紹介
             created_at: 登録日時
             updated_at: 更新日時
         genre:
