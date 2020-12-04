@@ -46,7 +46,18 @@ ja:
         cast:
             name: キャスト名称     
             created_at: 登録日時
-            updated_at: 更新日時          
+            updated_at: 更新日時 
+        review:
+            id: ID
+            user_id: ユーザID
+            user_name: ユーザ名
+            user_image: 画像
+            movie_id: 映画ID
+            movie_title: タイトル
+            movie_director: 監督
+            body: レビュー内容
+            created_at: 登録日時
+            updated_at: 更新日時     
   date:
     abbr_day_names:
     - 日

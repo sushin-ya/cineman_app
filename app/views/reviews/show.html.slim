@@ -1,0 +1,42 @@
+h1 レビューの詳細
+
+.nav.justify-content-end
+  = link_to '一覧', reviews_path, class: 'nav-link'
+table.table.table-hover
+  tbody
+    tr
+      th= Review.human_attribute_name(:id)
+      td= @review.id 
+    tr
+      th= Review.human_attribute_name(:user_id)
+      td= @review.user_id
+    tr
+      th= Review.human_attribute_name(:user_name)
+      td= @review.user.name
+    tr
+      th= Review.human_attribute_name(:user_image)
+      - if @review.user.image.attached?
+        td= image_tag @review.user.image 
+      - else
+        td= image_tag '/assets/default_avater.png', height: '200'   
+    tr
+      th= Review.human_attribute_name(:movie_id)
+      td= @review.movie_id
+    tr
+      th= Review.human_attribute_name(:movie_title)
+      - if @review.user.image.attached?
+        td= image_tag @review.movie.image 
+      - else
+        td= image_tag '/assets/default_poster.png', height: '200'     
+    tr
+      th= Review.human_attribute_name(:movie_director)
+      td= @review.movie.director
+    tr
+      th= Review.human_attribute_name(:body)
+      td= @review.body
+    tr
+      th= Review.human_attribute_name(:created_at)
+      td= @review.created_at
+    tr
+      th= Review.human_attribute_name(:updated_at)
+      td= @review.updated_at

@@ -21,3 +21,4 @@ table.table.table-hover
           = link_to '削除', movie, method: :delete, 
                     data: { confirm: "「#{movie.title}」を削除します。よろしいですか？"}, 
                     class: 'btn btn-danger'
+          = link_to 'レビュー', new_review_path(movie_id: movie.id) , class: 'btn btn-primary mr-3'

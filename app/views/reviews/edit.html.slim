@@ -1,0 +1,10 @@
+h1 #{current_user.name}の『#{@review.movie.title}』のレビューの編集
+
+= form_with model: @review, local: true do |f|
+ .form-group
+  = f.label :body
+  = f.text_area :body, rows: 3, class: 'form-control', id: 'review_body'
+  = f.hidden_field :user_id, value: current_user.id
+  = f.hidden_field :movie_id, value: @review.movie.id
+
+ = f.submit nil, class: 'btn btn-primary'

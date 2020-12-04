@@ -1,0 +1,11 @@
+h1 レビュー一覧
+
+.nav.justify-content-end
+  = link_to 'ホーム', root_url, class: 'nav-link'
+
+.mb-3
+  = paginate @reviews
+  = page_entries_info @reviews
+  - @reviews.each do |review|
+    ol.review
+      = render partial: 'review', locals: { review: review }
