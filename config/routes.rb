@@ -14,8 +14,9 @@ Rails.application.routes.draw do
   resources :directors
   resources :screenwriters
   resources :casts
-  resources :users
-
+  resources :users do
+    get :reviews
+  end
   resources :account_activations, only: [:edit]
   resources :password_resets, only: %i[new create edit update]
   resources :reviews
