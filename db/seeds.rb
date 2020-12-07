@@ -150,11 +150,18 @@ Genre.create!(name: 'クライム')
 # レビューを生成
 user = User.first
 movie1 = Movie.first
-50.times do |n|
+50.times do |_n|
   user.reviews.create!(
-    body: 'これは初めてのレビューです。ちょっと長めに文章を書いてみないとどれくらい表示されるのかわからないです', 
-    movie_id: movie1.id)
+    body: 'これは初めてのレビューです。ちょっと長めに文章を書いてみないとどれくらい表示されるのかわからないです',
+    movie_id: movie1.id
+  )
 end
 
 movie2 = Movie.second
 user.reviews.create!(body: 'これは二度目のレビューです', movie_id: movie2.id)
+
+# 映画と監督の紐付け
+Direction.create!(director_id: 1, movie_id: 1)
+Direction.create!(director_id: 1, movie_id: 2)
+Direction.create!(director_id: 1, movie_id: 3)
+Direction.create!(director_id: 2, movie_id: 4)

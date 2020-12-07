@@ -5,13 +5,16 @@ Rails.application.routes.draw do
   get '/management', to: 'static_page#management'
   get '/privacy', to: 'static_page#privacy'
   get '/term', to: 'static_page#term'
+  get '/search_by_director', to: 'static_page#search_by_director'
   root to: 'static_page#home'
 
   resources :movies
   get 'search', to: 'movies#index'
   
   resources :genres
-  resources :directors
+  resources :directors do
+    get :movies
+  end
   resources :screenwriters
   resources :casts
   resources :users do

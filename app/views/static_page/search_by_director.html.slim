@@ -1,0 +1,2 @@
+- @directors.each do |director|
+  = link_to "#{director.name}", director_movies_path(director_id: director.id), class: 'nav-link'

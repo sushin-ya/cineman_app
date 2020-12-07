@@ -8,4 +8,8 @@ class StaticPageController < ApplicationController
   def privacy; end
 
   def term; end
+
+  def search_by_director
+    @directors = Director.all
+  end
 end
