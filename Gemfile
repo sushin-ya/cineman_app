@@ -62,3 +62,5 @@ gem 'rubocop'
 gem 'faker'
 
 gem 'kaminari'
+
+gem 'ransack'

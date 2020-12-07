@@ -1,0 +1,8 @@
+.search-form
+  = search_form_for(@search, url:search_path) do |f|
+   .form-group.row.mb-0
+     .col-md-2
+     .col-md-6
+       = f.search_field :title_cont, class: 'form-control', placeholder: "映画のタイトルを入力"
+     .col-md-2
+       = f.submit nil, class: 'btn btn-primary'

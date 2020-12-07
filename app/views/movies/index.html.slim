@@ -1,5 +1,13 @@
 h1 映画一覧
 
+p 映画検索
+
+= search_form_for(@q, url:search_path) do |f|
+  .form-group
+    = f.label :title_cont, 'タイトル'
+    = f.search_field :title_cont, class: 'form-control'
+  = f.submit nil, class: 'btn btn-primary'
+
 = link_to '新規登録', new_movie_path, class: 'btn btn-primary'
 .nav.justify-content-end
   = link_to 'ホーム', root_url, class: 'nav-link'
