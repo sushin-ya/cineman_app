@@ -1,0 +1,28 @@
+p.mb-3 トップページ > レビュー詳細
+.container.user-show
+  .row
+    .col-4
+      .card
+        .card-header メニュー
+        ul.list-group.list-group-flush
+          li.list-group-item
+            = link_to 'ホーム', root_path
+          li.list-group-item
+            = link_to 'レビュー'
+          li.list-group-item
+             = link_to 'ブックマーク'
+          - if current_user?(@user)
+            li.list-group-item.list-group-item-action
+              = link_to 'プロフィール設定', edit_user_path(current_user)
+
+    .col-8.text-center
+      .card
+        .card-header #{@user.name}のレビュー
+      - if @reviews.present?
+        - @reviews.each do |review|
+          = render partial: 'review', locals: { review: review }
+        = paginate @reviews
+        = page_entries_info @reviews
+      - else
+        .card
+          .card-body 該当するレビューがありません

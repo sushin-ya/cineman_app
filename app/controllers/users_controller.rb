@@ -7,6 +7,11 @@ class UsersController < ApplicationController
     @users = User.all.page(params[:page])
   end
 
+  def reviews
+    @user = User.find(params[:user_id])
+    @reviews = Review.where(user_id: @user.id).order("updated_at DESC").all.page(params[:page])
+  end
+
   def show
     @user = User.find(params[:id])
   end
