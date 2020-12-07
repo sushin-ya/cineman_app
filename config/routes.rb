@@ -6,7 +6,10 @@ Rails.application.routes.draw do
   get '/privacy', to: 'static_page#privacy'
   get '/term', to: 'static_page#term'
   root to: 'static_page#home'
+
   resources :movies
+  get 'search', to:'movies#index'
+  
   resources :genres
   resources :directors
   resources :screenwriters

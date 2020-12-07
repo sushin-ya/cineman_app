@@ -9,6 +9,7 @@ html
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   body
   = render partial: "layouts/header"
+  = render partial: "layouts/header_search"
   .container
     - flash.each do |message_type, message|
       div class="alert alert-#{message_type}" #{message}

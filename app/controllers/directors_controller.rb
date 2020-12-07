@@ -3,6 +3,8 @@ class DirectorsController < ApplicationController
     @directors = Director.all
   end
 
+  
+
   def new
     @director = Director.new
   end
