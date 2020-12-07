@@ -32,7 +32,7 @@ p.mb-3 トップページ > マイページ
           tbody
             tr
               th 投稿したレビュー
-              td #{@user.reviews.count}件
+              td= link_to "#{@user.reviews.count}件", user_reviews_path(@user.id)
             tr
               th ブックマークに登録した映画
               td 10件

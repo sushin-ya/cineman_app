@@ -3,7 +3,11 @@ class DirectorsController < ApplicationController
     @directors = Director.all
   end
 
-  
+  def movies
+    @director = Director.find(params[:director_id])
+    @movies = @director.movies.order("updated_at DESC").all.page(params[:page])
+  end
+
 
   def new
     @director = Director.new
