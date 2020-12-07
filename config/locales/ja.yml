@@ -29,7 +29,7 @@ ja:
             password: パスワード
             password_confirmation: パスワード（確認）
             image: アバター画像
-            description: 自己紹介
+            description: 自己紹介（任意）
             created_at: 登録日時
             updated_at: 更新日時
         genre:
@@ -58,7 +58,10 @@ ja:
             movie_director: 監督
             body: レビュー内容
             created_at: 登録日時
-            updated_at: 更新日時     
+            updated_at: 更新日時  
+        session:
+            email: メールアドレス
+            password: パスワード
   date:
     abbr_day_names:
     - 日

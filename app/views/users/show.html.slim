@@ -1,40 +1,41 @@
-h2.mb-3 ユーザページ
+p.mb-3 トップページ > マイページ
 .container.user-show
   .row
-    .col-md-4
-      ul.list-group.text-center
-        li.list-group-item.title メニュー
-        li.list-group-item.list-group-item-action
-          = link_to 'ホーム', root_path
-        li.list-group-item.list-group-item-action
-          = link_to 'レビュー'
-        li.list-group-item.list-group-item-action
-          = link_to 'ブックマーク'
-        - if current_user?(@user)
-          li.list-group-item.list-group-item-action
-            = link_to 'プロフィール設定', edit_user_path(current_user)
+    .col-4
+      .card
+        .card-header メニュー
+        ul.list-group.list-group-flush
+          li.list-group-item
+            = link_to 'ホーム', root_path
+          li.list-group-item
+            = link_to 'レビュー'
+          li.list-group-item
+             = link_to 'ブックマーク'
+          - if current_user?(@user)
+            li.list-group-item.list-group-item-action
+              = link_to 'プロフィール設定', edit_user_path(current_user)
 
-    .col-md-8.text-center
-      .main-content
-        .list-group-item.rounded-top.title マイページ
-        .row
-          .col-md-3
-          .col-md
+    .col-8.text-center
+      .card
+        .card-header マイページ
+        .card-body
+          .card-img-top.mb-3
             - if @user.image.attached?
-              = image_tag @user.image 
+              = image_tag @user.image, class:'rounded-circle'
             - else
-              = image_tag '/assets/default_avater.png', height: '300'
-          .col-md-3
-        .mb-3
-          = @user.name
-        .mb-3
-          = @user.description
-        .row
-          .col-md-8 投稿したレビュー
-          .col-md-4 10件
-        .row
-          .col-md-8 ブックマークに登録した映画
-          .col-md-4 10件
-        .row
-          .col-md-8 鑑賞した映画
-          .col-md-4 10件
+              = image_tag '/assets/default_avater.png', height: '200', class:'rounded-circle'
+          h3.card-title
+            = @user.name
+          p.card-text
+            = @user.description
+        table.table.table-bordered 
+          tbody
+            tr
+              th 投稿したレビュー
+              td 10件
+            tr
+              th ブックマークに登録した映画
+              td 10件
+            tr
+              th 鑑賞した映画
+              td 10件

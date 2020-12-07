@@ -1,34 +1,35 @@
-h1 サインアップ
-- if @user.errors.present?
-  .alert.alert-danger
-    '#{@user.errors.count}件のエラーがあります
-    ul#error_explanation
-      - @user.errors.full_messages.each do |message|
-        li= message
+.text-center
+  - if @user.errors.present?
+    .alert.alert-danger
+      '#{@user.errors.count}件のエラーがあります
+      ul#error_explanation
+        - @user.errors.full_messages.each do |message|
+          li= message
 
-= form_with model: @user, local: true do |f|
- .form-group
-  = f.label :name
-  = f.text_field :name, class: 'form-control', id: 'user_name'
+  = form_with model: @user, local: true, class: 'form-signup mt-3' do |f|
+    h3.mb-2 サインアップする
+    .form-group.text-left
+      = f.label :name
+      = f.text_field :name, class: 'form-control', id: 'user_name', placeholder: :name
 
- .form-group
-  = f.label :email
-  = f.email_field :email, class: 'form-control', id: 'user_email'
+    .form-group.text-left
+      = f.label :email
+      = f.email_field :email, class: 'form-control', id: 'user_email', placeholder: :email
 
- .form-group
-  = f.label :description
-  = f.text_area :description, rows: 3, class: 'form-control', id: 'user_description'
+    .form-group.text-left
+      = f.label :description
+      = f.text_area :description, rows: 3, class: 'form-control', id: 'user_description', placeholder: :description
 
- .form-group
-  = f.label :password
-  = f.password_field :password, class: 'form-control', id: 'user_password'
+    .form-group.text-left
+      = f.label :password
+      = f.password_field :password, class: 'form-control', id: 'user_password', placeholder: :password
 
- .form-group
-  = f.label :password_confirmation
-  = f.password_field :password_confirmation, class: 'form-control', id: 'user_password_confirmation'
+    .form-group.text-left
+      = f.label :password_confirmation
+      = f.password_field :password_confirmation, class: 'form-control', id: 'user_password_confirmation', placeholder: :password_confirmation
 
- .form-group
-  = f.label :image
-  = f.file_field :image, class: 'form-control'
+    .form-group.text-left.mb-5
+      = f.label :image
+      = f.file_field :image, class: 'form-control'
 
- = f.submit nil, class: 'btn btn-primary'
+    = f.submit nil, class: 'btn btn-lg btn-primary btn-block'
