@@ -151,7 +151,9 @@ Genre.create!(name: 'クライム')
 user = User.first
 movie1 = Movie.first
 50.times do |n|
-  user.reviews.create!(body: 'これは初めてのレビューです', movie_id: movie1.id)
+  user.reviews.create!(
+    body: 'これは初めてのレビューです。ちょっと長めに文章を書いてみないとどれくらい表示されるのかわからないです', 
+    movie_id: movie1.id)
 end
 
 movie2 = Movie.second

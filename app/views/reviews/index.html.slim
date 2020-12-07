@@ -6,6 +6,14 @@ h1 レビュー一覧
 .mb-3
   = paginate @reviews
   = page_entries_info @reviews
-  - @reviews.each do |review|
-    ol.review
-      = render partial: 'review', locals: { review: review }
+  .container
+    .row
+      - @reviews.each do |review|
+        - if review.id.odd?
+          .col.col-md-6.col-sm-12.mb-3
+            = render partial: 'review', locals: { review: review }
+        - else
+          .col.col-md-6.col-sm-12.mb-3
+            = render partial: 'review', locals: { review: review }
+  = paginate @reviews
+  = page_entries_info @reviews

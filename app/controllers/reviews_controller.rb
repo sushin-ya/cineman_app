@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
   def index
-    @reviews = Review.all.page(params[:page])
+    @reviews = Review.all.order("updated_at DESC").page(params[:page]).per(20)
   end
 
   def show

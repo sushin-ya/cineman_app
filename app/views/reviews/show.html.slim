@@ -1,42 +1,30 @@
-h1 レビューの詳細
-
-.nav.justify-content-end
-  = link_to '一覧', reviews_path, class: 'nav-link'
-table.table.table-hover
-  tbody
-    tr
-      th= Review.human_attribute_name(:id)
-      td= @review.id 
-    tr
-      th= Review.human_attribute_name(:user_id)
-      td= @review.user_id
-    tr
-      th= Review.human_attribute_name(:user_name)
-      td= @review.user.name
-    tr
-      th= Review.human_attribute_name(:user_image)
-      - if @review.user.image.attached?
-        td= image_tag @review.user.image 
-      - else
-        td= image_tag '/assets/default_avater.png', height: '200'   
-    tr
-      th= Review.human_attribute_name(:movie_id)
-      td= @review.movie_id
-    tr
-      th= Review.human_attribute_name(:movie_title)
-      - if @review.user.image.attached?
-        td= image_tag @review.movie.image 
-      - else
-        td= image_tag '/assets/default_poster.png', height: '200'     
-    tr
-      th= Review.human_attribute_name(:movie_director)
-      td= @review.movie.director
-    tr
-      th= Review.human_attribute_name(:body)
-      td= @review.body
-    tr
-      th= Review.human_attribute_name(:created_at)
-      td= @review.created_at
-    tr
-      th= Review.human_attribute_name(:updated_at)
-      td= @review.updated_at
+p.mb-3 トップページ > レビュー詳細
+.card
+  .card-body
+      .user-avater.float-left.pr-3
+        - if @review.user.image.attached?
+          = image_tag @review.user.image 
+        - else
+          = image_tag '/assets/default_avater.png', width: '80px'         
+      .user-content.float-left
+        .user-name
+          = link_to @review.user do
+            | 『#{@review.movie.title}』の
+            | #{@review.user.name}の
+            | レビュー・感想・評価
+        .timestamp
+          = @review.created_at     
+  .card-body.pt-0
+    .title
+      = link_to @review.movie do
+        span.h3 『#{@review.movie.title}』        
+        |
+        span （#{@review.movie.production_year}年製作の映画）
+    .rate.mt-3.ml-3.mb-3
+      h4 ★★★★ 4.0
+    .body.ml-3.mr-3
+      p= @review.body
+    = link_to '編集', edit_review_path(@review), class: 'btn btn-primary mr-3'
+    = link_to '削除', @review, method: :delete, 
+                data: { confirm: "「#{@review.user.name}の#{@review.movie.title}のレビューを削除します。よろしいですか？"}, 
+                class: 'btn btn-danger'

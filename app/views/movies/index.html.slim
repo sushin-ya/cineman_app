@@ -1,13 +1,5 @@
 h1 映画一覧
 
-p 映画検索
-
-= search_form_for(@q, url:search_path) do |f|
-  .form-group
-    = f.label :title_cont, 'タイトル'
-    = f.search_field :title_cont, class: 'form-control'
-  = f.submit nil, class: 'btn btn-primary'
-
 = link_to '新規登録', new_movie_path, class: 'btn btn-primary'
 .nav.justify-content-end
   = link_to 'ホーム', root_url, class: 'nav-link'
@@ -29,4 +21,3 @@ table.table.table-hover
           = link_to '削除', movie, method: :delete, 
                     data: { confirm: "「#{movie.title}」を削除します。よろしいですか？"}, 
                     class: 'btn btn-danger'
-          = link_to 'レビュー', new_review_path(movie_id: movie.id) , class: 'btn btn-primary mr-3'

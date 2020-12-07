@@ -1,46 +1,44 @@
-h1 映画の詳細
+p.mb-3 トップページ > 映画の詳細
+.card
+  .card-body
+    .row
+      .movie-poster.col-4
+        - if @movie.image.attached?
+          = image_tag @movie.image 
+        - else
+          = image_tag '/assets/default_poster.png', width: '100%'
+      .movie-content.col-8
+        .movie-title
+          h3.font-weight-bold = @movie.title
+          | （#{@movie.production_year}年製作の映画）
 
-.nav.justify-content-end
-  = link_to '一覧', movies_path, class: 'nav-link'
-table.table.table-hover
-  tbody
-    tr
-      th= Movie.human_attribute_name(:id)
-      td= @movie.id
-    tr
-      th= Movie.human_attribute_name(:image)
-      - if @movie.image.attached?
-        td= image_tag @movie.image 
-      - else
-        td= image_tag '/assets/default_poster.png', height: '360'        
-    tr
-      th= Movie.human_attribute_name(:title)
-      td= @movie.title
-    tr
-      th= Movie.human_attribute_name(:production_year)
-      td= @movie.production_year
-    tr
-      th= Movie.human_attribute_name(:screening_date)
-      td= @movie.screening_date
-    tr
-      th= Movie.human_attribute_name(:country_of_origin)
-      td= @movie.country_of_origin
-    tr
-      th= Movie.human_attribute_name(:screening_time)
-      td= @movie.screening_time
-    tr
-      th= Movie.human_attribute_name(:director)
-      td= @movie.director
-    tr
-      th= Movie.human_attribute_name(:description)
-      td= simple_format(h(@movie.description), {}, sanitize: false, wrapper_tag: "div")
-    tr
-      th= Movie.human_attribute_name(:created_at)
-      td= @movie.created_at
-    tr
-      th= Movie.human_attribute_name(:updated_at)
-      td= @movie.updated_at
-= link_to '編集', edit_movie_path, class: 'btn btn-primary mr-3'
-= link_to '削除', @movie, method: :delete, 
-          data: { confirm: "「#{@movie.title}」を削除します。よろしいですか？"}, 
-          class: 'btn btn-danger'
+        .movie-info
+          p 上映日：#{@movie.screening_date} / 製作国：#{@movie.country_of_origin} / 上映時間：#{@movie.screening_time}分
+          p ジャンル：ドラマ、コメディ
+        
+        .rate
+          h4 ★★★★ 4.0
+        
+        .description
+          p あらすじ
+          p= @movie.description
+
+        .director
+          p 監督：#{@movie.director}
+
+        .appearances
+          p 出演者：ほにゃらら
+
+.card
+  .card-body
+    h4 『#{@movie.title}』に投稿されたレビュー・感想・評価
+.movie-reviews
+  - if @reviews.present?
+    - @reviews.each do |review|
+      = render partial: 'review', locals: { review: review }
+    = paginate @reviews
+    = page_entries_info @reviews
+  - else
+    .card
+      .card-body
+        h4 該当するレビューがありません
