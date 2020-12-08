@@ -18,6 +18,6 @@ class StaticPageController < ApplicationController
   end
 
   def search_by_count
-    @movies = Movie.find(Review.quigroup(:movie_id).order('count(movie_id) desc').pluck(:movie_id))
+    @movies = Movie.find(Review.group(:movie_id).order('count(movie_id) desc').pluck(:movie_id))
   end
 end
