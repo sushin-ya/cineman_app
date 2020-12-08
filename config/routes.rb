@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'directors/index'
   namespace :admin do
     get '/home', to: 'users#home'
     resources :movies
@@ -20,14 +21,28 @@ Rails.application.routes.draw do
 
   root to: 'users#top'
 
-  resources :movies, only: [:index]
+  resources :movies, only: [:index, :show]
+
   get 'search', to: 'movies#search'
+
+  resources :screeningwriters do
+    get :index
+    get :movies
+  end
+
   resources :genres do
+    get :index
     get :movies
   end
-  resources :directors do
+  resources :directors, only: [:index] do
     get :movies
   end
+
+  resources :production_years do
+    get :index
+    get :movies
+  end
+
   resources :users do
     get :reviews
   end

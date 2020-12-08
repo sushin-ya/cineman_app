@@ -1,6 +1,6 @@
 class MoviesController < ApplicationController
   def index
-    @movies = Movie.all
+    @movies = Movie.find(Review.group(:movie_id).order('count(movie_id) desc').pluck(:movie_id))
   end
 
   def search
@@ -8,7 +8,12 @@ class MoviesController < ApplicationController
     @movies = @q.result(distinct: true)
   end
 
+  def show
+    @movie = Movie.find(params[:id])
+  end
+
   private
+
   def search_params
     params.require(:q).permit(:title_cont)
   end
