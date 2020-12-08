@@ -1,0 +1,38 @@
+.card
+  .card-body
+    .row.row-cols-2
+      .col-7
+        .row.mb-1
+          .user-avater.col-4.pr-0
+            - if review.user.image.attached?
+              = image_tag review.user.image 
+            - else
+              = image_tag '/assets/default_avater.png', width: '100%'
+          .user-content.col-8.pl-1
+            .user-name
+              = link_to review.user.name, review.user
+            .timestamp
+              p.small= review.created_at     
+        .title
+          = link_to review.movie do
+            span.h5 #{review.movie.title}            
+            |
+            span.small（#{review.movie.production_year}年製作の映画）
+        .rate
+          = review.rate
+          | ★★★★ 4.0
+        .body
+          p= truncate(review.body, length: 40)
+        .show
+          = link_to '>>続きを読む', review
+      .col-5.pl-0
+        .movie-poster
+          - if review.movie.image.attached?
+            = image_tag review.movie.image
+          - else
+            = image_tag '/assets/default_poster.png', width: '100%'      
+
+        = link_to '編集', edit_review_path(review), class: 'btn btn-primary mr-3'
+        = link_to '削除', review, method: :delete, 
+              data: { confirm: "「#{review.user.name}の#{review.movie.title}のレビューを削除します。よろしいですか？"}, 
+              class: 'btn btn-danger'

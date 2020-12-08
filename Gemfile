@@ -64,3 +64,5 @@ gem 'faker'
 gem 'kaminari'
 
 gem 'ransack'
+
+gem 'font-awesome-sass'

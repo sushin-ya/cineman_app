@@ -84,7 +84,7 @@ ActiveRecord::Schema.define(version: 2020_12_04_165857) do
 
   create_table "reviews", force: :cascade do |t|
     t.text "body"
-    t.float "rate"
+    t.float "rate", default: 0.0
     t.bigint "user_id", null: false
     t.bigint "movie_id", null: false
     t.datetime "created_at", precision: 6, null: false

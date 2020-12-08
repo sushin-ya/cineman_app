@@ -1,0 +1,33 @@
+p.mb-3 トップページ > おすすめの映画
+.container.user-show
+  .row
+    .col-4
+      .card
+        .card-header メニュー
+        ul.list-group.list-group-flush
+          li.list-group-item
+            = link_to 'ホーム', root_path
+          li.list-group-item
+            = link_to 'レビュー'
+          li.list-group-item
+             = link_to 'ブックマーク'
+    
+    .col-8
+      - @movies.each do |movie|
+        .col-md-6.col-sm-6.container
+          .card-deck.text-center
+            .card
+              .card-img-top
+                = image_tag '/assets/default_poster.png', width: '100%'
+              .card-text.py-3 『#{movie.title}』
+              .card-body
+                .row
+                  .col-4
+                    p= icon 'far', 'comment', class: 'fa-lg'
+                    p= count(movie)
+                  .col-4
+                    p= icon 'far', 'bookmark', class: 'fa-lg'
+                    p= 1.0
+                  .col-4
+                    p= icon 'far', 'star', class: 'fa-lg'
+                    p= rate(movie)
