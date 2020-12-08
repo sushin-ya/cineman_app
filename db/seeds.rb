@@ -153,12 +153,19 @@ movie1 = Movie.first
 50.times do |_n|
   user.reviews.create!(
     body: 'これは初めてのレビューです。ちょっと長めに文章を書いてみないとどれくらい表示されるのかわからないです',
-    movie_id: movie1.id
+    movie_id: movie1.id,
+    rate: 1
   )
 end
 
 movie2 = Movie.second
-user.reviews.create!(body: 'これは二度目のレビューです', movie_id: movie2.id)
+user.reviews.create!(body: 'これは二度目のレビューです', movie_id: movie2.id, rate: 2)
+movie3 = Movie.find(3)
+user.reviews.create!(body: 'これは二度目のレビューです', movie_id: movie3.id, rate: 3)
+movie4 = Movie.find(4)
+user.reviews.create!(body: 'これは二度目のレビューです', movie_id: movie4.id, rate: 4)
+movie5 = Movie.find(5)
+user.reviews.create!(body: 'これは二度目のレビューです', movie_id: movie5.id, rate: 5)
 
 # 映画と監督の紐付け
 Direction.create!(director_id: 1, movie_id: 1)

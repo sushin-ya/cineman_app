@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   get '/privacy', to: 'static_page#privacy'
   get '/term', to: 'static_page#term'
   get '/search_by_director', to: 'static_page#search_by_director'
-  root to: 'static_page#home'
+  get '/search_by_count', to: 'static_page#search_by_count'
+  get '/home', to: 'static_page#home'
+  root to: 'static_page#top'
 
   resources :movies
   get 'search', to: 'movies#index'
@@ -27,6 +29,5 @@ Rails.application.routes.draw do
   get '/signup', to: 'users#new'
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
-
   delete '/logout', to: 'sessions#destroy'
 end

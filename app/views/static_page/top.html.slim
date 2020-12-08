@@ -1,0 +1,92 @@
+.top-wrapper.position-relative.p-5.text-center
+  .col-md-7.p-lg-5.mx-auto.my-5.top-text
+    h2.pt-5.p-3 あなたの素敵な映画体験を<br>誰かと共有しませんか？
+    p.pt-3.pb-5 CINEM@N<br>-映画人間のためのレビューサイト-
+
+.container
+  .top-content.mx-3.py-5.text-center
+    h2 CINEM@Nでいま注目の映画 
+  .row
+    - @movies.each do |movie|
+      .col-md-3.col-sm-6
+        .card-deck.text-center
+          .card
+            .card-img-top
+              = image_tag '/assets/default_poster.png', width: '100%'
+            .card-text.py-3 『#{movie.title}』
+            .card-body
+              .row
+                .col-4
+                  p= icon 'far', 'comment', class: 'fa-lg'
+                  p= count(movie)
+                .col-4
+                  p= icon 'far', 'bookmark', class: 'fa-lg'
+                  p= 1.0
+                .col-4
+                  p= icon 'far', 'star', class: 'fa-lg'
+                  p= rate(movie)
+
+
+  .more-read.text-center.py-5
+    = link_to 'もっと見る', search_by_count_path, class: 'btn btn-primary'
+
+.border-bottom
+
+.container.text-center
+  .search-movie.py-5.text-center
+    h2 映画を探す
+  .card.mb-5.mx-5
+    .card-header
+      h5 監督
+    .card-body
+      .row
+        .col-3 偉大な監督の名前
+        .col-3 偉大な監督の名前
+        .col-3 偉大な監督の名前
+        .col-3 偉大な監督の名前
+        .col-3 偉大な監督の名前
+
+  .card.mb-5.mx-5
+    .card-header
+      h5 脚本家
+    .card-body
+      .row
+        .col-3 偉大な脚本家の名前
+        .col-3 偉大な脚本家の名前
+        .col-3 偉大な脚本家の名前
+        .col-3 偉大な脚本家の名前
+        .col-3 偉大な脚本家の名前
+
+  .card.mb-5.mx-5
+    .card-header
+      h5 ジャンル
+    .card-body
+      .row
+        .col-3 偉大なジャンルの名前
+        .col-3 偉大なジャンルの名前
+        .col-3 偉大なジャンルの名前
+        .col-3 偉大なジャンルの名前
+        .col-3 偉大なジャンルの名前
+
+  .card.mb-5.mx-5
+    .card-header
+      h5 製作年
+    .card-body
+      .row
+        .col-3 2020年代
+        .col-3 2010年代
+        .col-3 2000年代
+        .col-3 1990年代
+        .col-3 1980年代
+
+.border-bottom
+
+.container.text-center
+  .new-reviews.mx-3.pt-5.text-center
+    h3 最近投稿された感想・レビュー
+
+  .row
+    - 4.times do |review|
+      .col-6
+        p 最近投稿されたレビューです
+        / = render partial: 'review', locals: { review: review }
