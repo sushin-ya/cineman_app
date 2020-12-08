@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    get '/home', to: 'users#home'
+    resources :movies
+    resources :directors
+    resources :genres
+    resources :screenwriters
+    resources :casts
+  end
+
   get 'password_resets/new'
   get 'password_resets/edit'
   get '/frequently_qa', to: 'static_page#frequently_qa'
@@ -8,20 +17,21 @@ Rails.application.routes.draw do
   get '/search_by_director', to: 'static_page#search_by_director'
   get '/search_by_count', to: 'static_page#search_by_count'
   get '/home', to: 'static_page#home'
-  root to: 'static_page#top'
 
-  resources :movies
-  get 'search', to: 'movies#index'
-  
-  resources :genres
+  root to: 'users#top'
+
+  resources :movies, only: [:index]
+  get 'search', to: 'movies#search'
+  resources :genres do
+    get :movies
+  end
   resources :directors do
     get :movies
   end
-  resources :screenwriters
-  resources :casts
   resources :users do
     get :reviews
   end
+
   resources :account_activations, only: [:edit]
   resources :password_resets, only: %i[new create edit update]
   resources :reviews

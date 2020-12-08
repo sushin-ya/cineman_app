@@ -3,7 +3,7 @@
     - movie.errors.full_messages.each do |message|
       li= message
 
-= form_with model: movie, local: true do |f|
+= form_with model: [:admin, movie], local: true do |f|
  .form-group
   = f.label :title
   = f.text_field :title, class: 'form-control', id: 'movie_title'

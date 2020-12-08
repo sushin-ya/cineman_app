@@ -1,6 +1,6 @@
 h1 映画監督一覧
 
-= link_to '新規登録', new_director_path, class: 'btn btn-primary'
+= link_to '新規登録', new_admin_director_path, class: 'btn btn-primary'
 .nav.justify-content-end
   = link_to 'ホーム', root_url, class: 'nav-link'
 
@@ -17,7 +17,7 @@ table.table.table-hover
         td= director.name
         td= director.created_at
         td
-          = link_to '編集', edit_director_path(director), class: 'btn btn-primary mr-3'
-          = link_to '削除', director, method: :delete, 
+          = link_to '編集', edit_admin_director_path(director), class: 'btn btn-primary mr-3'
+          = link_to '削除', admin_director_path(director), method: :delete, 
                     data: { confirm: "「#{director.name}」を削除します。よろしいですか？"}, 
                     class: 'btn btn-danger'

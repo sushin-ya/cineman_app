@@ -1,4 +1,4 @@
-class ScreenwritersController < ApplicationController
+class Admin::ScreenwritersController < ApplicationController
   def index
     @screenwriters = Screenwriter.all
   end
