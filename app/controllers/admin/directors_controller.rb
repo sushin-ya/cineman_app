@@ -19,7 +19,7 @@ class Admin::DirectorsController < ApplicationController
   def create
     @director = Director.new(director_params)
     if @director.save
-      redirect_to directors_url, notice: "「#{@director.name}」を登録しました。"
+      redirect_to admin_directors_url, notice: "「#{@director.name}」を登録しました。"
     else
       render :new
     end
@@ -28,13 +28,13 @@ class Admin::DirectorsController < ApplicationController
   def update
     director = Director.find(params[:id])
     director.update!(director_params)
-    redirect_to directors_url, notice: "「#{director.name}」を更新しました。"
+    redirect_to admin_directors_url, notice: "「#{director.name}」を更新しました。"
   end
 
   def destroy
     director = Director.find(params[:id])
     director.destroy
-    redirect_to directors_url, notice: "「#{director.name}」を削除しました。"
+    redirect_to admin_directors_url, notice: "「#{director.name}」を削除しました。"
   end
 
   private

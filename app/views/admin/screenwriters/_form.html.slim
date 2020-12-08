@@ -3,7 +3,7 @@
     - screenwriter.errors.full_messages.each do |message|
       li= message
 
-= form_with model: screenwriter, local: true do |f|
+= form_with model: [:admin, screenwriter], local: true do |f|
  .form-group
   = f.label :name
   = f.text_field :name, class: 'form-control', id: 'screenwriter_name'

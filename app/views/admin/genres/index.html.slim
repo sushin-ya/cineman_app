@@ -1,6 +1,6 @@
 h1 ジャンル一覧
 
-= link_to '新規登録', new_genre_path, class: 'btn btn-primary'
+= link_to '新規登録', new_admin_genre_path, class: 'btn btn-primary'
 .nav.justify-content-end
   = link_to 'ホーム', root_url, class: 'nav-link'
 
@@ -17,7 +17,7 @@ table.table.table-hover
         td= genre.name
         td= genre.created_at
         td
-          = link_to '編集', edit_genre_path(genre), class: 'btn btn-primary mr-3'
-          = link_to '削除', genre, method: :delete, 
+          = link_to '編集', edit_admin_genre_path(genre), class: 'btn btn-primary mr-3'
+          = link_to '削除', admin_genre_path(genre), method: :delete, 
                     data: { confirm: "「#{genre.name}」を削除します。よろしいですか？"}, 
                     class: 'btn btn-danger'

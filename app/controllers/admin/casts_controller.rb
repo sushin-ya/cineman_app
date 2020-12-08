@@ -14,7 +14,7 @@ class Admin::CastsController < ApplicationController
   def create
     @cast = Cast.new(cast_params)
     if @cast.save
-      redirect_to casts_url, notice: "「#{@cast.name}」を登録しました。"
+      redirect_to admin_casts_path, notice: "「#{@cast.name}」を登録しました。"
     else
       render :new
     end
@@ -23,13 +23,13 @@ class Admin::CastsController < ApplicationController
   def update
     cast = Cast.find(params[:id])
     cast.update!(cast_params)
-    redirect_to casts_url, notice: "「#{cast.name}」を更新しました。"
+    redirect_to admin_casts_path, notice: "「#{cast.name}」を更新しました。"
   end
 
   def destroy
     cast = Cast.find(params[:id])
     cast.destroy
-    redirect_to casts_url, notice: "「#{cast.name}」を削除しました。"
+    redirect_to admin_casts_path, notice: "「#{cast.name}」を削除しました。"
   end
 
   private
