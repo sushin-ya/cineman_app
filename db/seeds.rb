@@ -186,3 +186,14 @@ Direction.create!(director_id: 2, movie_id: 4)
 Appearance.create!(movie_id: 1, cast_id: 1)
 Appearance.create!(movie_id: 1, cast_id: 2)
 Appearance.create!(movie_id: 5, cast_id: 3)
+
+# 映画と脚本家の紐付け
+Screenwrite.create!(movie_id: 1, screenwriter_id: 1)
+Screenwrite.create!(movie_id: 1, screenwriter_id: 2)
+Screenwrite.create!(movie_id: 2, screenwriter_id: 2)
+
+# 映画とジャンルの紐付け
+GenreClassification.create!(movie_id: 1, genre_id: 1)
+GenreClassification.create!(movie_id: 1, genre_id: 2)
+GenreClassification.create!(movie_id: 1, genre_id: 3)
+GenreClassification.create!(movie_id: 4, genre_id: 2)

@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ScreeningwritersControllerTest < ActionDispatch::IntegrationTest
+class ScreenwriteTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
