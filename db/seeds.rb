@@ -137,6 +137,15 @@ Director.create!(name: 'フランソワ・トリュフォー')
 Director.create!(name: '黒澤明')
 Director.create!(name: 'マーティン・スコセッシ')
 
+# 脚本家を生成
+Screenwriter.create!(name: 'アルフレッド・ヒッチコック')
+Screenwriter.create!(name: '黒澤明')
+
+# キャスト
+Cast.create!(name: 'ジェームズ・ステュアート')
+Cast.create!(name: 'キム・ノヴァク')
+Cast.create!(name: '三船敏郎')
+
 # ジャンルを生成
 Genre.create!(name: 'アニメ')
 Genre.create!(name: 'ドラマ')
@@ -172,3 +181,8 @@ Direction.create!(director_id: 1, movie_id: 1)
 Direction.create!(director_id: 1, movie_id: 2)
 Direction.create!(director_id: 1, movie_id: 3)
 Direction.create!(director_id: 2, movie_id: 4)
+
+# 映画とキャストの紐付け
+Appearance.create!(movie_id: 1, cast_id: 1)
+Appearance.create!(movie_id: 1, cast_id: 2)
+Appearance.create!(movie_id: 5, cast_id: 3)
