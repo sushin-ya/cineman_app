@@ -2,6 +2,8 @@ header.navbar.navbar-expand-lg.navbar-dark.bg-dark
    .container
      = link_to 'CINEM@N', root_path,  class: 'navbar-brand mb-0 h1' 
      ul.navbar-nav.flex-row
+       - if current_user.admin?
+        li= link_to '管理者ホーム', admin_home_path,  class: 'nav-link' 
        - if logged_in?
         li= link_to 'マイページ', current_user,  class: 'nav-link ml-4' 
         li= link_to 'ログアウト', logout_path,  method: :delete, class: 'nav-link ml-4' 

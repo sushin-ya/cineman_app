@@ -3,13 +3,17 @@ class UsersController < ApplicationController
   before_action :correct_user,   only: %i[edit update]
   before_action :admin_user,     only: :destroy
 
+  def top
+    @movies = Movie.find(Review.group(:movie_id).order('count(movie_id) desc').limit(4).pluck(:movie_id))
+  end
+
   def index
     @users = User.all.page(params[:page])
   end
 
   def reviews
     @user = User.find(params[:user_id])
-    @reviews = Review.where(user_id: @user.id).order("updated_at DESC").all.page(params[:page])
+    @reviews = Review.where(user_id: @user.id).order('updated_at DESC').all.page(params[:page])
   end
 
   def show
