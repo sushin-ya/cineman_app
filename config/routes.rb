@@ -40,11 +40,13 @@ Rails.application.routes.draw do
 
   resources :users do
     get :reviews
+    get :bookmarks
   end
 
   resources :account_activations, only: [:edit]
   resources :password_resets, only: %i[new create edit update]
   resources :reviews
+  resources :bookmarks, only: %i[create destroy]
 
   get '/signup', to: 'users#new'
   get '/login', to: 'sessions#new'

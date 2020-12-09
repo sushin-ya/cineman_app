@@ -17,9 +17,17 @@
             .card-body
               .row
                 .col-4
-                  p= icon 'far', 'comment', class: 'fa-lg'
+                  p= link_to icon 'far', 'comment', class: 'fa-lg'
+                  - if reviewed?(movie)
+                    p= link_to '新規作成', new_review_path(movie_id: movie.id)
+                  - else
+                    p= link_to 'edit', edit_review_path(reviewed_id(movie))
                   p= count(movie)
                 .col-4
+                  - if bookmarked?(movie)
+                    p= link_to 'post', bookmarks_path(movie_id: movie.id), method: :post
+                  - else
+                    p= link_to 'delete', bookmark_path(movie.id), method: :delete
                   p= icon 'far', 'bookmark', class: 'fa-lg'
                   p= 1.0
                 .col-4
