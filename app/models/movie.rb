@@ -1,6 +1,8 @@
 class Movie < ApplicationRecord
   has_one_attached :image
   has_many :reviews, dependent: :destroy
+  has_many :bookmarks, dependent: :destroy
+  has_many :users, through: :bookmarks
 
   has_many :directions
   has_many :directors, through: :directions

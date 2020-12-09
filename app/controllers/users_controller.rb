@@ -16,6 +16,11 @@ class UsersController < ApplicationController
     @reviews = Review.where(user_id: @user.id).order('updated_at DESC').all.page(params[:page])
   end
 
+  def bookmarks
+    user = User.find(params[:user_id])
+    @movies = Movie.find(user.bookmarks.order('updated_at DESC').pluck(:movie_id))
+  end
+
   def show
     @user = User.find(params[:id])
   end
