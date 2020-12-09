@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'directors/index'
   namespace :admin do
     get '/home', to: 'users#home'
     resources :movies
@@ -17,29 +16,25 @@ Rails.application.routes.draw do
   get '/term', to: 'static_page#term'
   get '/search_by_director', to: 'static_page#search_by_director'
   get '/search_by_count', to: 'static_page#search_by_count'
-  get '/home', to: 'static_page#home'
 
   root to: 'users#top'
 
-  resources :movies, only: [:index, :show]
+  resources :movies, only: %i[index show]
 
   get 'search', to: 'movies#search'
 
-  resources :screeningwriters do
-    get :index
+  resources :screenwriters, only: [:index] do
     get :movies
   end
 
-  resources :genres do
-    get :index
+  resources :genres, only: [:index] do
     get :movies
   end
   resources :directors, only: [:index] do
     get :movies
   end
 
-  resources :production_years do
-    get :index
+  resources :production_years, only: [:index] do
     get :movies
   end
 
