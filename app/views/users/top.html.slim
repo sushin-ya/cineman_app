@@ -1,11 +1,9 @@
-.top-wrapper.position-relative.p-5.text-center
-  .col-md-7.p-lg-5.mx-auto.my-5.top-text
-    h2.pt-5.p-3 あなたの素敵な映画体験を<br>誰かと共有しませんか？
-    p.pt-3.pb-5 CINEM@N<br>-映画人間のためのレビューサイト-
+.top-wrapper.text-center
+  = image_tag '/assets/top.png', width: '100%', class:'col-md-9'
 
 .container
   .top-content.mx-3.py-5.text-center
-    h2 CINEM@Nでいま注目の映画 
+    h2 CINEMA'Sでいま注目の映画 
   .row
     - @movies.each do |movie|
       .col-md-3.col-sm-6

@@ -1,3 +1,3 @@
-# CINEM@N
+# CINEMA'S
 
 映画レビューサイト

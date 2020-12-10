@@ -2,16 +2,16 @@ doctype html
 html
   head
     title
-      | Cinem@n
+      | CINEMA'S
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    = favicon_link_tag 'favicon.ico'
   body
   = render partial: "layouts/header"
   - if logged_in?
     = render partial: "layouts/header_search"
-        //  .container
     - flash.each do |message_type, message|
       div class="alert alert-#{message_type}" #{message}
   = yield
