@@ -23,14 +23,14 @@ Rails.application.routes.draw do
 
   get 'search', to: 'movies#search'
 
-  resources :screenwriters, only: [:index] do
+  resources :screenwriters, only: %i[index] do
     get :movies
   end
 
   resources :genres, only: [:index] do
     get :movies
   end
-  resources :directors, only: [:index] do
+  resources :directors, only: %i[index] do
     get :movies
   end
 

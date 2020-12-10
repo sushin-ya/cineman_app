@@ -22,6 +22,14 @@ nav {
   color: #f5c518;
 }
 
+a {
+  color: rgba(#000, 0.8);
+}
+
+a:hover {
+  color: #f5c518;
+}
+
 /* miscellaneous */
 .debug_dump {
   width: 80%;
@@ -63,8 +71,13 @@ footer li a {
 }
 
 footer li a:hover {
-  color: rgba(255, 255, 255, 0.8);
+  color: #f5c518;
   text-decoration: underline;
+}
+
+footer small.copyright {
+  color: rgba(255, 255, 255, 0.5);
+  user-select: none;
 }
 
 /* sign up */
@@ -86,10 +99,6 @@ footer li a:hover {
 /* top */
 .top-wrapper {
   background-color: #f5c518;
-}
-
-.top-content h2 {
-  font-weight: bold;
 }
 
 .top-content h2 > span {

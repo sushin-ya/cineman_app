@@ -1,27 +1,29 @@
-footer.footer-links.bg-dark
- small
-  .container.pt-5.pb-3
-    .row
-      .col
-        ul
-          li.title.mb-1 ご利用ガイド
-          li= link_to 'よくあるご質問', frequently_qa_path 
-      .col
-        ul
-          li.title.mb-1  映画を探す
-          li= link_to 'いま注目の映画', movies_path
-          li= link_to '監督で探す', directors_path
-          li= link_to '脚本で探す', screenwriters_path
-          li= link_to 'ジャンルで探す', genres_path
-          li= link_to '製作年で探す', production_years_path
-      .col
-        ul
-          li.title.mb-1  企業情報
-          li= link_to '運営会社', management_path
-          li= link_to '利用規約', term_path
-          li= link_to 'プライバシーポリシー', privacy_path
-      .col
-        ul
-          li.title.mb-1  お問い合わせ
-          li= link_to 'ご意見・ご要望'
-          li= link_to 'その他お問い合わせ'
+footer.footer-links
+ nav
+  small
+    .container.pt-5.pb-3
+      .row
+        .col
+          ul
+            li.title.mb-1 ご利用ガイド
+            li= link_to 'よくあるご質問', frequently_qa_path 
+        .col
+          ul
+            li.title.mb-1  映画を探す
+            li= link_to 'いま注目の映画', movies_path
+            li= link_to '監督で探す', directors_path
+            li= link_to '脚本で探す', screenwriters_path
+            li= link_to 'ジャンルで探す', genres_path
+            li= link_to '製作年で探す', production_years_path
+        .col
+          ul
+            li.title.mb-1  企業情報
+            li= link_to '運営会社', management_path
+            li= link_to '利用規約', term_path
+            li= link_to 'プライバシーポリシー', privacy_path
+        .col
+          ul
+            li.title.mb-1  お問い合わせ
+            li= link_to 'ご意見・ご要望'
+            li= link_to 'その他お問い合わせ'
+  

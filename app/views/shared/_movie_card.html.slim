@@ -2,7 +2,7 @@
   .card
     .card-img-top
       = image_tag '/assets/default_poster.png', width: '100%'
-    p.card-text.mb-0.pt-3.pb-3.border-top.border-bottom #{movie.title}
+    p.card-text.mb-0.pt-3.pb-3.border-top.border-bottom =link_to movie.title, movie
     .card-body.p-0
       .row.col-12.m-0.p-0
         - if reviewed?(movie)

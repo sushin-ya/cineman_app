@@ -5,6 +5,12 @@ class UsersController < ApplicationController
 
   def top
     @movies = Movie.find(Review.group(:movie_id).order('count(movie_id) desc').limit(4).pluck(:movie_id))
+    @directors = Director.first(8)
+    @screenwriters = Screenwriter.first(8)
+    @genres = Genre.first(10)
+    @production_years = [*1910..2020].select { |num| (num % 10).zero? }
+    @production_years.reverse!
+    @reviews = Review.order('updated_at DESC').first(4)
   end
 
   def index
