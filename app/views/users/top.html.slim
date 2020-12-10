@@ -8,7 +8,7 @@
       span 2020/12/10 00:00 現在
   .row
     - @movies.each do |movie|
-      .col-md-3.col-6
+      .col-md-3.col-6.mt-3
         = render partial: "shared/movie_card", locals: { movie: movie }
 
 
@@ -78,7 +78,7 @@
   .recent-reviews.m-5.py-5
     h2.font-weight-bold 最近投稿された感想・レビュー
 
-  .row
+  .row.text-center
     - @reviews.each do |review|
-      .col-6
+      .col-md-6.mt-4
         = render partial: "shared/review_card", locals: { review: review }

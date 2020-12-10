@@ -111,11 +111,6 @@ footer small.copyright {
   position: relative;
 }
 
-.movie-links.active a {
-  background-color: rgba(245, 197, 24, 0.9);
-  color: rgba(#000, 0.7);
-}
-
 .movie-links a {
   position: absolute;
   top: 0;
@@ -131,6 +126,14 @@ footer small.copyright {
   text-decoration: none;
 }
 
+.movie-links.active {
+  background-color: rgba(245, 197, 24, 0.9);
+}
+
+.movie-links.active a {
+  color: rgba(#000, 0.7);
+}
+
 .movie-rate p {
   user-select: none;
   color: rgba(#000, 0.7);
@@ -138,4 +141,22 @@ footer small.copyright {
 
 .star-color {
   color: #f5c518;
+}
+
+/* review_card */
+.user-info {
+  height: 50px;
+}
+
+.user-info img {
+  height: 50px;
+  width: 50px;
+}
+
+.rate {
+  user-select: none;
+}
+
+.movie-btn {
+  height: 64px;
 }
