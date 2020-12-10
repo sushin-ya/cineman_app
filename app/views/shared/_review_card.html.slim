@@ -33,7 +33,7 @@
         .movie-info.col-12
           .row
             - if reviewed?(review.movie)
-              .col-6.movie-links
+              .col-6.movie-links.movie-btn
                 = link_to new_review_path(movie_id: review.movie.id), data: { confirm: "「#{review.movie.title}」のレビューを作成しますか？"} do
                   p.mb-0.pt-2= icon 'fas', 'comment', class: 'fa-lg'
                   p.mb-0.pb-2= count(review.movie)
@@ -44,12 +44,12 @@
                   p.mb-0.pb-2= count(review.movie)
 
             - if bookmarked?(review.movie)
-              .col-6.movie-links
+              .col-6.movie-links.movie-btn
                 = link_to bookmarks_path(movie_id: review.movie.id), method: :post, data: { confirm: "「#{review.movie.title}」のブックマークします？"}  do
                   p.mb-0.pt-2= icon 'fas', 'bookmark', class: 'fa-lg'
                   p.mb-0.pb-2= bookmark(review.movie)
             - else
-              .col-6.movie-links.active
+              .col-6.movie-links.active.movie-btn
                 = link_to bookmark_path(review.movie.id), method: :delete, data: { confirm: "「#{review.movie.title}」のブックマークを解除しますか？"} do
                   p.mb-0.pt-2= icon 'fas', 'bookmark', class: 'fa-lg'
                   p.mb-0.pb-2= bookmark(review.movie)
