@@ -2,39 +2,18 @@
   = image_tag '/assets/top.png', width: '100%', class:'col-md-9'
 
 .container
-  .top-content.mx-3.py-5.text-center
-    h2 CINEMA'Sでいま注目の映画 
+  .top-content.m-5.py-5.text-center
+    h2 
+      | CINEMA'Sでいま注目の映画 
+      span 2020/12/10 00:00 現在
   .row
     - @movies.each do |movie|
       .col-md-3.col-sm-6
-        .card-deck.text-center
-          .card
-            .card-img-top
-              = image_tag '/assets/default_poster.png', width: '100%'
-            .card-text.py-3 『#{movie.title}』
-            .card-body
-              .row
-                .col-4
-                  p= link_to icon 'far', 'comment', class: 'fa-lg'
-                  - if reviewed?(movie)
-                    p= link_to '新規作成', new_review_path(movie_id: movie.id)
-                  - else
-                    p= link_to 'edit', edit_review_path(reviewed_id(movie))
-                  p= count(movie)
-                .col-4
-                  - if bookmarked?(movie)
-                    p= link_to 'post', bookmarks_path(movie_id: movie.id), method: :post
-                  - else
-                    p= link_to 'delete', bookmark_path(movie.id), method: :delete
-                  p= icon 'far', 'bookmark', class: 'fa-lg'
-                  p= 1.0
-                .col-4
-                  p= icon 'far', 'star', class: 'fa-lg'
-                  p= rate(movie)
+        = render partial: "shared/movie_card", locals: { movie: movie }
 
 
   .more-read.text-center.py-5
-    = link_to 'もっと見る', movies_path, class: 'btn btn-primary'
+    = link_to 'もっと見る', movies_path, class: 'btn btn-black px-4'
 
 .border-bottom
 

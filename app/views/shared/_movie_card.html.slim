@@ -1,0 +1,32 @@
+.card-deck.text-center
+  .card
+    .card-img-top
+      = image_tag '/assets/default_poster.png', width: '100%'
+    p.card-text.mb-0.pt-3.pb-3.border-top.border-bottom #{movie.title}
+    .card-body.p-0
+      .row.col-12.m-0.p-0
+        - if reviewed?(movie)
+          .col-4.movie-links
+            = link_to new_review_path(movie_id: movie.id), data: { confirm: "「#{movie.title}」のレビューを作成しますか？"} do
+              p.mb-0.pt-3= icon 'fas', 'comment', class: 'fa-lg'
+              p.mb-0.pb-2= count(movie)
+        - else
+          .col-4.movie-links.active
+            = link_to edit_review_path(reviewed_id(movie)), data: { confirm: "「#{movie.title}」のレビューを編集しますか？"} do
+              p.mb-0.pt-3= icon 'fas', 'comment', class: 'fa-lg'
+              p.mb-0.pb-2= count(movie)
+
+        - if bookmarked?(movie)
+          .col-4.movie-links
+            = link_to bookmarks_path(movie_id: movie.id), method: :post, data: { confirm: "「#{movie.title}」のブックマークします？"}  do
+              p.mb-0.pt-3= icon 'fas', 'bookmark', class: 'fa-lg'
+              p.mb-0.pb-2= bookmark(movie)
+        - else
+          .col-4.movie-links.active
+            = link_to bookmark_path(movie.id), method: :delete, data: { confirm: "「#{movie.title}」のブックマークを解除しますか？"} do
+              p.mb-0.pt-3= icon 'fas', 'bookmark', class: 'fa-lg'
+              p.mb-0.pb-2= bookmark(movie)
+
+        .col-4.movie-rate
+          p.mb-0.pt-3= icon 'fas', 'star', class: 'fa-lg star-color'
+          p.mb-0.pb-2= rate(movie)
