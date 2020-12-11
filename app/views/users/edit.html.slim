@@ -6,7 +6,7 @@
         - @user.errors.full_messages.each do |message|
          li= message
 
-  = form_with model: @user, class: 'form-signup mt-3', local: true do |f|
+  = form_with model: @user, class: 'form-signin', local: true do |f|
     h3.mb-2 ユーザ情報を編集する
     .form-group.text-left
       = f.label :name
@@ -27,5 +27,9 @@
     .form-group.text-left
       = f.label :password_confirmation
       = f.password_field :password_confirmation, class: 'form-control', id: 'user_password_confirmation'
+
+    .form-group.text-left
+      = f.label :image
+      = f.file_field :image, class: 'form-control'
 
     = f.submit nil, class: 'btn btn-lg btn-primary btn-block'

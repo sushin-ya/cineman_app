@@ -1,3 +1,21 @@
-h1 ブックマーク
-- @movies.each do |movie|
-  p= movie.title
+p.mb-3 トップページ > ブックマーク
+.container.user-show
+  .row
+    .col-4
+      .card
+        = render partial: "sidebar", locals: { user: @user }
+
+    .col-8.text-center
+      .card
+        .card-header #{@user.name}のブックマーク
+      - if @movies.present?
+        .row
+          - @movies.each do |movie|
+            .col-md-4.col-6.d-flex
+              .mb-4
+                = render partial: "shared/movie_card", locals: { movie: movie }
+        = paginate @movies
+        = page_entries_info @movies
+      - else
+        .card
+          .card-body ブックマークした映画がありません

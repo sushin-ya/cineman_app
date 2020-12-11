@@ -1,0 +1,11 @@
+.card-header メニュー
+ul.list-group.list-group-flush
+  li.list-group-item
+    = link_to 'ホーム', root_path
+  li.list-group-item
+    = link_to 'レビュー', user_reviews_path(@user)
+  li.list-group-item
+     = link_to 'ブックマーク', user_bookmarks_path(@user)
+  - if current_user?(@user)
+    li.list-group-item.list-group-item-action
+      = link_to 'プロフィール設定', edit_user_path(current_user)
