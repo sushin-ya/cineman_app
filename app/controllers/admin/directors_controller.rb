@@ -1,4 +1,4 @@
-class Admin::DirectorsController < ApplicationController
+class Admin::DirectorsController < Admin::Base
   def index
     @directors = Director.all
   end

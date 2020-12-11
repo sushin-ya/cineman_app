@@ -1,4 +1,4 @@
-class Admin::MoviesController < ApplicationController
+class Admin::MoviesController < Admin::Base
   def index
     @movies = Movie.all
   end

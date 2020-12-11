@@ -1,0 +1,22 @@
+doctype html
+html
+  head
+    title
+      | CINEMA'S
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    = favicon_link_tag 'favicon.ico'
+  body
+  = render partial: "layouts/header"
+  .container-fluid
+    .row
+      = render partial: "layouts/sidebar"
+  
+      main.col-md-10.col-xs-8.px-4
+        .main-content
+          = yield
+  = debug(params) if Rails.env.development?
+  = render partial: "layouts/footer_links"
+  = render partial: "layouts/footer_copyright"

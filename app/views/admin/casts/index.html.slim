@@ -1,28 +1,22 @@
-.container-fluid
-  .row
-    = render partial: "admin/shared/sidebar"
-  
-    main.col-md-9.ml-sm-auto.col-lg-10.px-4
-      .main-content
-        .d-flex.justify-content-between.flex-wrap.flex-md-nowrap.align-items-center.pt-3.pb-2.mb-3
-          h2 キャスト一覧
-          .btn-toolbar.mb-2.mb-md-0
-            = link_to '新規登録', new_admin_cast_path, class: 'btn btn-black'
-            = link_to 'ホーム', admin_home_path, class: 'nav-link'
+.d-flex.justify-content-between.flex-wrap.flex-md-nowrap.align-items-center.pt-3.pb-2.mb-3
+    h2 キャスト一覧
+    .btn-toolbar.mb-2.mb-md-0
+      = link_to '新規登録', new_admin_cast_path, class: 'btn btn-black'
+      = link_to 'ホーム', admin_home_path, class: 'nav-link'
 
-      table.table.table-hover
-        thead.thead-default
-          tr
-            th= Cast.human_attribute_name(:name)
-            th= Cast.human_attribute_name(:created_at)
-            th
-        tbody
-          - @casts.each do |cast|
-            tr
-              td= cast.name
-              td= cast.created_at
-              td
-                = link_to '編集', edit_admin_cast_path(cast), class: 'btn btn-black mr-3'
-                = link_to '削除', admin_cast_path(cast), method: :delete, 
-                          data: { confirm: "「#{cast.name}」を削除します。よろしいですか？"}, 
-                          class: 'btn btn-danger'
+table.table.table-hover
+  thead.thead-default
+    tr
+      th= Cast.human_attribute_name(:name)
+      th= Cast.human_attribute_name(:created_at)
+      th
+  tbody
+    - @casts.each do |cast|
+      tr
+        td= cast.name
+        td= cast.created_at
+        td
+          = link_to '編集', edit_admin_cast_path(cast), class: 'btn btn-black mr-3'
+          = link_to '削除', admin_cast_path(cast), method: :delete, 
+                    data: { confirm: "「#{cast.name}」を削除します。よろしいですか？"}, 
+                    class: 'btn btn-danger'

@@ -2,10 +2,9 @@
   ul#error_explanation
     - cast.errors.full_messages.each do |message|
       li= message
-
 = form_with model: [:admin, cast], local: true do |f|
  .form-group
   = f.label :name
   = f.text_field :name, class: 'form-control', id: 'cast_name'
 
- = f.submit nil, class: 'btn btn-primary'
+  = f.submit nil, class: 'btn btn-black mt-3'
