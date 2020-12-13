@@ -1,0 +1,63 @@
+.card.mb-3
+  .card-body.text-left.pb-0
+    .row
+      .movie-poster.col-4
+        - if movie.image.attached?
+          = image_tag movie.image 
+        - else
+          = image_tag '/assets/default_poster.png', width: '100%'
+        .movie-info.col-12
+          .row
+            - if reviewed?(movie)
+              .col-6.movie-links.movie-btn.text-center
+                = link_to new_review_path(movie_id: movie), data: { confirm: "「#{movie.title}」のレビューを作成しますか？"} do
+                  p.mb-0.pt-2= icon 'fas', 'comment', class: 'fa-lg'
+                  p.mb-0.pb-2= count(movie)
+            - else
+              .col-6.movie-links.active.movie-btn.text-center 
+                = link_to edit_review_path(reviewed_id(movie)), data: { confirm: "「#{movie.title}」のレビューを編集しますか？"} do
+                  p.mb-0.pt-2= icon 'fas', 'comment', class: 'fa-lg'
+                  p.mb-0.pb-2= count(movie)
+
+            - if bookmarked?(movie)
+              .col-6.movie-links.movie-btn.text-center
+                = link_to bookmarks_path(movie_id: movie.id), method: :post, data: { confirm: "「#{movie.title}」のブックマークします？"}  do
+                  p.mb-0.pt-2= icon 'fas', 'bookmark', class: 'fa-lg'
+                  p.mb-0.pb-2= bookmark(movie)
+            - else
+              .col-6.movie-links.active.movie-btn.text-center
+                = link_to bookmark_path(movie.id), method: :delete, data: { confirm: "「#{movie.title}」のブックマークを解除しますか？"} do
+                  p.mb-0.pt-2= icon 'fas', 'bookmark', class: 'fa-lg'
+                  p.mb-0.pb-2= bookmark(movie)          
+
+      .movie-content.col-8
+        .movie-title.mb-4
+          span.h4.font-weight-bold
+            | #{movie.title}
+            span.small
+              | （#{movie.production_year}年製作の映画）
+
+        .movie-info.small.mb-4
+          p.mb-0 上映日：#{movie.screening_date} / 製作国：#{movie.country_of_origin} / 上映時間：#{movie.screening_time}分
+          p.mb-0 ジャンル：ドラマ、コメディ
+        
+        .rate.mb-4
+          h4 
+            | ★★★★
+            span 
+              |  #{rate(movie)}
+        
+        .description
+          p.font-weight-bold.small あらすじ
+          p.small= truncate(movie.description, length: 55)
+
+        .director
+          p.font-weight-bold.small 監督：#{movie.director}
+
+        .appearances
+          p.font-weight-bold.small 
+            | 出演者：
+            - movie.casts.each do | cast |
+              = cast.name
+  .card-body.text-right.pt-0
+    = link_to '>>続きを読む', movie, class: 'small'

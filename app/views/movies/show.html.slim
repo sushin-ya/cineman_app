@@ -1,44 +1,23 @@
 p.mb-3 トップページ > 映画の詳細
-.card
-  .card-body
-    .row
-      .movie-poster.col-4
-        - if @movie.image.attached?
-          = image_tag @movie.image 
-        - else
-          = image_tag '/assets/default_poster.png', width: '100%'
-      .movie-content.col-8
-        .movie-title
-          h3.font-weight-bold = @movie.title
-          | （#{@movie.production_year}年製作の映画）
-
-        .movie-info
-          p 上映日：#{@movie.screening_date} / 製作国：#{@movie.country_of_origin} / 上映時間：#{@movie.screening_time}分
-          p ジャンル：ドラマ、コメディ
+.container
+  .row
+    .col-4
+      .card
+        = render partial: "shared/sidebar"
         
-        .rate
-          h4 ★★★★ 4.0
-        
-        .description
-          p あらすじ
-          p= @movie.description
+    .col-8.text-center
+      .card
+        .card-header 映画詳細
+      = render partial: "shared/movie_detail_card", locals: {movie: @movie}
 
-        .director
-          p 監督：#{@movie.director}
-
-        .appearances
-          p 出演者：ほにゃらら
-
-.card
-  .card-body
-    h4 『#{@movie.title}』に投稿されたレビュー・感想・評価
-.movie-reviews
-  - if @reviews.present?
-    - @reviews.each do |review|
-      = render partial: 'review', locals: { review: review }
-    = paginate @reviews
-    = page_entries_info @reviews
-  - else
-    .card
-      .card-body
-        h4 該当するレビューがありません
+      .card.mt-5
+        .card-header 『#{@movie.title}』に投稿されたレビュー・感想・評価
+      - if @reviews.present?
+        - @reviews.each do |review|
+          = render partial: 'shared/review_card', locals: { review: review }
+          .mb-4
+        = paginate @reviews
+        = page_entries_info @reviews
+      - else
+        .card-body
+            h4 該当するレビューがありません

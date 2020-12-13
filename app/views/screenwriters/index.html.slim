@@ -1,3 +1,15 @@
-h1 脚本家で探す
-- @screenwriters.each do |screenwriter|
-  p= link_to screenwriter.name, screenwriter_movies_path(screenwriter)
+h2.text-center.font-weight-bold.py-5 脚本家で探す 
+
+.container
+  .row
+    .col-4
+      .card
+        = render partial: "shared/sidebar"
+        
+    .col-8.text-center
+      .card
+        .card-header 脚本家名
+        .card-body
+          .d-flex.flex-row.flex-wrap.mb-3
+            - @screenwriters.each do |screenwriter|
+              .p-3.col-6= link_to screenwriter.name, screenwriter_movies_path(screenwriter)

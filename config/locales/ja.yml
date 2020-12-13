@@ -62,6 +62,7 @@ ja:
         session:
             email: メールアドレス
             password: パスワード
+            
   date:
     abbr_day_names:
     - 日

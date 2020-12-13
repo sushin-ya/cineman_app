@@ -9,8 +9,30 @@ body {
   font-weight: bold;
 }
 
-nav {
+nav.navbar {
   background-color: #000;
+}
+
+nav.nav-bar {
+  background-color: #000;
+}
+
+
+.btn-black {
+  background-color: #000;
+  color: #fff;
+}
+
+.btn-black:hover {
+  color: #f5c518;
+}
+
+a {
+  color: rgba(#000, 0.8);
+}
+
+a:hover {
+  color: #f5c518;
 }
 
 /* miscellaneous */
@@ -28,15 +50,6 @@ header.navbar-dark .navbar-nav .show > .nav-link,
 .search-form {
   padding: 15px 0;
   background-color: #eee;
-}
-
-.btn-black {
-  background-color: #000;
-  color: #fff;
-}
-
-.btn-black:hover {
-  color: #f5c518;
 }
 
 /* footer */
@@ -63,8 +76,13 @@ footer li a {
 }
 
 footer li a:hover {
-  color: rgba(255, 255, 255, 0.8);
+  color: #f5c518;
   text-decoration: underline;
+}
+
+footer small.copyright {
+  color: rgba(255, 255, 255, 0.5);
+  user-select: none;
 }
 
 /* sign up */
@@ -78,12 +96,72 @@ footer li a:hover {
 /* sign in*/
 .form-signin {
   width: 100%;
-  max-width: 330px;
-  padding: 15px;
+  max-width: 600px;
+  padding: 50px 80px 80px 80px;
   margin: auto;
 }
 
 /* top */
 .top-wrapper {
   background-color: #f5c518;
+}
+
+.top-content h2 > span {
+  font-size: medium;
+}
+
+/* movie_card */
+.movie-links {
+  background-color: rgba(245, 197, 24, 0.5);
+  position: relative;
+}
+
+.movie-links a {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  color: rgba(#000, 0.4);
+}
+
+.movie-links a:hover {
+  background-color: rgba(#f5c518, 0.8);
+  color: rgba(#000, 0.7);
+  text-decoration: none;
+}
+
+.movie-links.active {
+  background-color: rgba(245, 197, 24, 0.9);
+}
+
+.movie-links.active a {
+  color: rgba(#000, 0.7);
+}
+
+.movie-rate p {
+  user-select: none;
+  color: rgba(#000, 0.7);
+}
+
+.star-color {
+  color: #f5c518;
+}
+
+/* review_card */
+.user-info {
+  height: 50px;
+}
+
+.user-info img {
+  height: 50px;
+  width: 50px;
+}
+
+.rate {
+  user-select: none;
+}
+
+.movie-btn {
+  height: 64px;
 }

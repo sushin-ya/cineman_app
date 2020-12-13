@@ -10,6 +10,7 @@ class MoviesController < ApplicationController
 
   def show
     @movie = Movie.find(params[:id])
+    @reviews = @movie.reviews.order("updated_at DESC").page(params[:page]).per(10)
   end
 
   private

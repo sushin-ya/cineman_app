@@ -1,0 +1,17 @@
+nav.col-md-2.col-xs-4.bg-light.sidebar.pt-2
+  .sidebar-sticky
+    .ul.nav.flex-column
+      .nav-item 
+        = link_to 'ダッシュボード', admin_home_path, class: 'nav-link'
+      .nav-item 
+        = link_to '映画一覧', admin_movies_path, class: 'nav-link'
+      .nav-item 
+        = link_to '映画監督一覧', admin_directors_path, class: 'nav-link'
+      .nav-item 
+        = link_to 'ジャンル一覧', admin_genres_path, class: 'nav-link'
+      .nav-item 
+        = link_to '脚本家一覧', admin_screenwriters_path, class: 'nav-link'
+      .nav-item 
+        = link_to 'キャスト一覧', admin_casts_path, class: 'nav-link'
+      .nav-item 
+        = link_to 'ユーザ一覧', admin_users_path, class: 'nav-link'

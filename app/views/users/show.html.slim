@@ -3,17 +3,7 @@ p.mb-3 トップページ > マイページ
   .row
     .col-4
       .card
-        .card-header メニュー
-        ul.list-group.list-group-flush
-          li.list-group-item
-            = link_to 'ホーム', root_path
-          li.list-group-item
-            = link_to 'レビュー', user_reviews_path(@user)
-          li.list-group-item
-             = link_to 'ブックマーク', user_bookmarks_path(@user)
-          - if current_user?(@user)
-            li.list-group-item.list-group-item-action
-              = link_to 'プロフィール設定', edit_user_path(current_user)
+        = render partial: "sidebar", locals: { user: @user }
 
     .col-8.text-center
       .card
@@ -24,18 +14,19 @@ p.mb-3 トップページ > マイページ
               = image_tag @user.image, class:'rounded-circle'
             - else
               = image_tag '/assets/default_avater.png', height: '200', class:'rounded-circle'
-          h3.card-title
+          h3.card-title.font-weight-bold
             = @user.name
           p.card-text
             = @user.description
-        table.table.table-bordered 
-          tbody
-            tr
-              th 投稿したレビュー
-              td= link_to "#{@user.reviews.count}件", user_reviews_path(@user.id)
-            tr
-              th ブックマークに登録した映画
-              td 10件
-            tr
-              th 鑑賞した映画
-              td 10件
+        .card-body
+          table.table.table-bordered.mb-0
+            tbody
+              tr
+                th 投稿したレビュー
+                td= link_to "#{@user.reviews.count}件", user_reviews_path(@user.id)
+              tr
+                th ブックマークに登録した映画
+                td= link_to "#{@user.bookmarks.count}件", user_bookmarks_path(@user.id)
+              tr
+                th いいねした数
+                td 10件

@@ -1,4 +1,9 @@
-p.mb-3 トップページ > 映画の詳細
+.d-flex.justify-content-between.flex-wrap.flex-md-nowrap.align-items-center.pt-3.pb-2.mb-3
+    h2= @movie.title
+    .btn-toolbar.mb-2.mb-md-0
+      = link_to '新規登録', new_admin_movie_path, class: 'btn btn-black'
+      = link_to '一覧', admin_movies_path, class: 'nav-link'
+
 .card
   .card-body
     .row
@@ -17,7 +22,7 @@ p.mb-3 トップページ > 映画の詳細
           p ジャンル：ドラマ、コメディ
         
         .rate
-          h4 ★★★★ 4.0
+          h4 ★★★★ #{rate(@movie) ? rate(@movie) : "-"}
         
         .description
           p あらすじ
@@ -28,17 +33,3 @@ p.mb-3 トップページ > 映画の詳細
 
         .appearances
           p 出演者：ほにゃらら
-
-.card
-  .card-body
-    h4 『#{@movie.title}』に投稿されたレビュー・感想・評価
-.movie-reviews
-  - if @reviews.present?
-    - @reviews.each do |review|
-      = render partial: 'review', locals: { review: review }
-    = paginate @reviews
-    = page_entries_info @reviews
-  - else
-    .card
-      .card-body
-        h4 該当するレビューがありません

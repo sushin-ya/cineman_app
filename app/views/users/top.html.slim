@@ -1,98 +1,84 @@
 .top-wrapper.text-center
   = image_tag '/assets/top.png', width: '100%', class:'col-md-9'
 
-.container
-  .top-content.mx-3.py-5.text-center
-    h2 CINEMA'Sでいま注目の映画 
+.container.text-center
+  .top-content.m-5.py-5
+    h2.font-weight-bold 
+      | CINEMA'Sでいま注目の映画 
+      span 2020/12/10 00:00 現在
   .row
     - @movies.each do |movie|
-      .col-md-3.col-sm-6
-        .card-deck.text-center
-          .card
-            .card-img-top
-              = image_tag '/assets/default_poster.png', width: '100%'
-            .card-text.py-3 『#{movie.title}』
-            .card-body
-              .row
-                .col-4
-                  p= link_to icon 'far', 'comment', class: 'fa-lg'
-                  - if reviewed?(movie)
-                    p= link_to '新規作成', new_review_path(movie_id: movie.id)
-                  - else
-                    p= link_to 'edit', edit_review_path(reviewed_id(movie))
-                  p= count(movie)
-                .col-4
-                  - if bookmarked?(movie)
-                    p= link_to 'post', bookmarks_path(movie_id: movie.id), method: :post
-                  - else
-                    p= link_to 'delete', bookmark_path(movie.id), method: :delete
-                  p= icon 'far', 'bookmark', class: 'fa-lg'
-                  p= 1.0
-                .col-4
-                  p= icon 'far', 'star', class: 'fa-lg'
-                  p= rate(movie)
+      .col-md-3.col-6.mt-3
+        = render partial: "shared/movie_card", locals: { movie: movie }
 
 
-  .more-read.text-center.py-5
-    = link_to 'もっと見る', movies_path, class: 'btn btn-primary'
+  .more-read.py-5
+    = link_to 'もっと見る', movies_path, class: 'btn btn-black px-4'
+
+.border-bottom
+
+.container.text-center.serch-movies
+  .search-movie.m-5.py-5
+    h2.font-weight-bold 映画を探す
+  .card.mb-5.mx-5
+    .card-header
+      h5.font-weight-bold.mb-0 監督で探す
+    .card-body
+      .row
+        - @directors.each do |director|
+          .col-md-4.col-sm-6.col-6
+            p.normal.font-weight-bold.mb-0
+              = link_to director.name, director_movies_path(director)
+    .card-body
+      u.normal.font-weight-bold.mb-0
+        = link_to 'もっと見る', directors_path
+
+  .card.mb-5.mx-5
+    .card-header
+      h5.font-weight-bold.mb-0  脚本家で探す
+    .card-body
+      .row
+        - @screenwriters.each do |screenwriter|
+          .col-md-3.col-sm-6.col-6
+            p.normal.font-weight-bold.mb-0
+              = link_to screenwriter.name, screenwriter_movies_path(screenwriter)
+    .card-body
+      u.normal.font-weight-bold.mb-0
+        = link_to 'もっと見る', screenwriters_path
+
+  .card.mb-5.mx-5
+    .card-header
+      h5.font-weight-bold.mb-0  ジャンルで探す
+    .card-body
+      .row
+        - @genres.each do |genre|
+          .col-md-3.col-4
+            p.normal.font-weight-bold.mb-0
+              = link_to genre.name, genre_movies_path(genre)
+    .card-body
+      u.normal.font-weight-bold.mb-0
+        = link_to 'もっと見る', genres_path
+
+  .card.mb-5.mx-5
+    .card-header
+      h5.font-weight-bold.mb-0 製作年
+    .card-body
+      .row
+        - @production_years.each do |production_year|
+          .col-md-3.col-4
+            p.normal.font-weight-bold.mb-0
+              = link_to production_year, production_year_movies_path(production_year)
+    .card-body
+      u.normal.font-weight-bold.mb-0
+        = link_to 'もっと見る', production_years_path
 
 .border-bottom
 
 .container.text-center
-  .search-movie.py-5.text-center
-    h2 映画を探す
-  .card.mb-5.mx-5
-    .card-header
-      h5 監督
-    .card-body
-      .row
-        .col-3 偉大な監督の名前
-        .col-3 偉大な監督の名前
-        .col-3 偉大な監督の名前
-        .col-3 偉大な監督の名前
-        .col-3 偉大な監督の名前
+  .recent-reviews.m-5.py-5
+    h2.font-weight-bold 最近投稿された感想・レビュー
 
-  .card.mb-5.mx-5
-    .card-header
-      h5 脚本家
-    .card-body
-      .row
-        .col-3 偉大な脚本家の名前
-        .col-3 偉大な脚本家の名前
-        .col-3 偉大な脚本家の名前
-        .col-3 偉大な脚本家の名前
-        .col-3 偉大な脚本家の名前
-
-  .card.mb-5.mx-5
-    .card-header
-      h5 ジャンル
-    .card-body
-      .row
-        .col-3 偉大なジャンルの名前
-        .col-3 偉大なジャンルの名前
-        .col-3 偉大なジャンルの名前
-        .col-3 偉大なジャンルの名前
-        .col-3 偉大なジャンルの名前
-
-  .card.mb-5.mx-5
-    .card-header
-      h5 製作年
-    .card-body
-      .row
-        .col-3 2020年代
-        .col-3 2010年代
-        .col-3 2000年代
-        .col-3 1990年代
-        .col-3 1980年代
-
-.border-bottom
-
-.container.text-center
-  .new-reviews.mx-3.pt-5.text-center
-    h3 最近投稿された感想・レビュー
-
-  .row
-    - 4.times do |review|
-      .col-6
-        p 最近投稿されたレビューです
-        / = render partial: 'review', locals: { review: review }
+  .row.text-center
+    - @reviews.each do |review|
+      .col-md-6.mt-4
+        = render partial: "shared/review_card", locals: { review: review }
