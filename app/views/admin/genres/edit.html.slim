@@ -1,5 +1,5 @@
-h1 ジャンルの編集
-.nav.justify-content-end
-  = link_to '一覧', genres_path, class: 'nav-link'
-
+.d-flex.justify-content-between.flex-wrap.flex-md-nowrap.align-items-center.pt-3.pb-2.mb-3
+  h2 ジャンルの編集
+  .btn-toolbar.mb-2.mb-md-0
+    = link_to '一覧', admin_genres_path, class: 'nav-link'
 = render partial: "form", locals: { genre: @genre }
