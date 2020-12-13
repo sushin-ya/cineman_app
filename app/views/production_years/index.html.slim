@@ -12,4 +12,6 @@ h2.text-center.font-weight-bold.py-5 製作年で探す
         .card-body
           .d-flex.flex-row.flex-wrap.mb-3
             - @production_years.each do |production_year|
-              .p-3.col-3= link_to production_year, production_year_movies_path(production_year)
+              .p-3.col-3
+                = link_to production_year_movies_path(production_year) do
+                  span #{production_year}年代

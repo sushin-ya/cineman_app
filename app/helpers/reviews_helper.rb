@@ -1,6 +1,6 @@
 module ReviewsHelper
   def reviewed?(movie)
-    !(logged_in? && current_user.reviews.exists?(movie.id))
+    !(logged_in? && current_user.reviews.exists?(movie_id: movie.id))
   end
 
   def reviewed_id(movie)

@@ -4,7 +4,7 @@ class ScreenwritersController < ApplicationController
   end
 
   def movies
-    screenwriter = Screenwriter.find(params[:screenwriter_id])
-    @movies = screenwriter.movies
+    @screenwriter = Screenwriter.find(params[:screenwriter_id])
+    @movies = @screenwriter.movies
   end
 end

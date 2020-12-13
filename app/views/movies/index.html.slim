@@ -9,6 +9,5 @@ h2.text-center.font-weight-bold.py-5 CINEMA'Sでいま注目の映画
     .col-8.text-center
       .card
         .card-header 映画タイトル
-        .card-body
-          - @movies.each do |movie|
-            p= link_to movie.title, movie_path(movie)
+      - @movies.each do |movie|
+        = render partial: "shared/movie_list_card", locals: {movie: movie}
