@@ -1,3 +1,15 @@
-h1 製作年で探す
-- @production_years.each do | production_year|
-  p= link_to production_year, production_year_movies_path(production_year)
+h2.text-center.font-weight-bold.py-5 製作年で探す 
+
+.container
+  .row
+    .col-4
+      .card
+        = render partial: "shared/sidebar"
+        
+    .col-8.text-center
+      .card
+        .card-header 製作年
+        .card-body
+          .d-flex.flex-row.flex-wrap.mb-3
+            - @production_years.each do |production_year|
+              .p-3.col-3= link_to production_year, production_year_movies_path(production_year)

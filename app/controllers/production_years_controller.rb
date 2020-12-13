@@ -1,6 +1,7 @@
 class ProductionYearsController < ApplicationController
   def index
-    @production_years = [*1940..2020].select { |num| (num % 10).zero? }
+    @production_years = [*1910..2020].select { |num| (num % 10).zero? }
+    @production_years.reverse!
   end
 
   def movies

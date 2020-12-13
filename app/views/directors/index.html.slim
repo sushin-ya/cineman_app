@@ -1,3 +1,15 @@
-h1 監督で探す
-- @directors.each do |director|
-  p= link_to director.name, director_movies_path(director)
+h2.text-center.font-weight-bold.py-5 監督で探す 
+
+.container
+  .row
+    .col-4
+      .card
+        = render partial: "shared/sidebar"
+        
+    .col-8.text-center
+      .card
+        .card-header 監督名
+        .card-body
+          .d-flex.flex-row.flex-wrap.mb-3
+            - @directors.each do |director|
+              .p-3.col-6= link_to director.name, director_movies_path(director)
