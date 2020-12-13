@@ -1,1 +1,13 @@
-h1 検索結果
+h2.text-center.font-weight-bold.py-5 『#{@q.title_cont}』の検索結果
+
+.container
+  .row
+    .col-4
+      .card
+        = render partial: "shared/sidebar"
+        
+    .col-8.text-center
+      .card
+        .card-header 映画タイトル
+      - @movies.each do |movie|
+        = render partial: "shared/movie_list_card", locals: {movie: movie}
