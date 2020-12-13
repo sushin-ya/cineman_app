@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     resources :genres
     resources :screenwriters
     resources :casts
+    resources :users
+    resources :reviews
   end
 
   get 'password_resets/new'
